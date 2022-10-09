@@ -10,7 +10,7 @@
 
   <body>
     
-    <nav>
+    {{!-- <nav>
       <ul>
         <li><a href="/">FilmGalaxy</a></li>
         <li><a href="/how-it-works">How It Works</a></li>
@@ -26,8 +26,27 @@
           <li><a href="/signup">Sign Up</a></li>
         {{/if}}
       </ul>
-    </nav>
+    </nav> --}}
 
+    <div class="content">
+      <nav>
+        {{#if userInSession}}
+          <div class="title">Hello {{userInSession.email}}</div>
+        {{/if}}
+        <ul class="nav">
+          <li><a class="nav-link active" href="/">Home</a></li>
+          <li><a class="nav-link" href="/festivals">Festivals List</a></li>
+          {{#if userInSession}}
+            <li><a class="nav-link" href="/festivals/create">Create a festival</a></li>
+            <li><a class="nav-link" href="/projects/create">Add your project</a></li>
+            <li><a class="nav-link" href="/logout">Logout</a></li>
+          {{else}}
+            <li><a class="nav-link" href="/login">Log In</a></li>
+            <li><a class="nav-link" href="/signup">Sign Up</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </div>
 
     {{{body}}}
 

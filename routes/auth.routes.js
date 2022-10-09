@@ -77,9 +77,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
             .render("auth/signup", { errorMessage: error.message });
         }
         if (error.code === 11000) {
-          return res
-            .status(400)
-            .render("auth/signup", { errorMessage: "Email need to be unique. The email you chose is already in use." });
+          return res.status(400).render("auth/signup", {
+            errorMessage:
+              "Email need to be unique. The email you chose is already in use.",
+          });
         }
         return res
           .status(500)
@@ -107,9 +108,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
   if (password.length < 8) {
-    return res
-      .status(400)
-      .render("auth/login", { errorMessage: "Your password needs to be at least 8 characters long." });
+    return res.status(400).render("auth/login", {
+      errorMessage: "Your password needs to be at least 8 characters long.",
+    });
   }
 
   // Search the database for a user with the username submitted in the form
@@ -154,7 +155,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
         .status(500)
         .render("/logout", { errorMessage: err.message });
     }
-    
+
     res.redirect("/");
   });
 });

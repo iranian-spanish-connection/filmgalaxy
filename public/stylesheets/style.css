@@ -5,8 +5,41 @@ body {
 
 a {
   color: #00b7ff;
+  text-decoration: none;
 }
 
 h1 {
   color: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+.title {
+  text-align: right;
+  padding: 0 1rem;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+.nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid #ff4b4c;
+  color: #ff4b4c;
 }

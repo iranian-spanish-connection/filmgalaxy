@@ -26,12 +26,17 @@ const projectName = "filmgalaxy";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
-// 👇 Start handling routes here
-const index = require("./routes/index.routes");
-app.use("/", index);
+app.use((req, res, next) => {
+  res.locals.userInSession = req.session.user;
+  console.log("res.locals.userInSession>>>", res.locals.userInSession);
+  next();
+});
 
-const authRoutes = require("./routes/auth.routes");
-app.use("/", authRoutes);
+// 👇 Start handling routes here
+app.use("/", require("./routes/index.routes"));
+app.use("/", require("./routes/auth.routes"));
+app.use("/", require("./routes/festival.routes"));
+app.use("/", require("./routes/project.routes"));
 
 
 const festivalSearch = require("./routes/festivalsearch.routes");
