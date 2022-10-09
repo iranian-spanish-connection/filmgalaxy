@@ -74,9 +74,10 @@ router.post("/signup", (req, res) => {
             .render("auth/signup", { errorMessage: error.message });
         }
         if (error.code === 11000) {
-          return res
-            .status(400)
-            .render("auth/signup", { errorMessage: "Email need to be unique. The email you chose is already in use." });
+          return res.status(400).render("auth/signup", {
+            errorMessage:
+              "Email need to be unique. The email you chose is already in use.",
+          });
         }
         return res
           .status(500)
@@ -85,19 +86,15 @@ router.post("/signup", (req, res) => {
   });
 });
 
-
-
-
-
-
-router.get("/login", isLoggedOut, (req, res) => {
+router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
-router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
+router.post("/login", (req, res, next) => {
+  const { email, password } = req.body;
+  console.log("req.body>>>", req.body);
 
-  if (!username) {
+  if (!email) {
     return res
       .status(400)
       .render("auth/login", { errorMessage: "Please provide your username." });
@@ -106,13 +103,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
   if (password.length < 8) {
-    return res
-      .status(400)
-      .render("auth/login", { errorMessage: "Your password needs to be at least 8 characters long." });
+    return res.status(400).render("auth/login", {
+      errorMessage: "Your password needs to be at least 8 characters long.",
+    });
   }
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username })
+  User.findOne({ email })
     .then((user) => {
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
@@ -122,7 +119,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
+      bcrypt.compare(password, user.passwordHash).then((isSamePassword) => {
         if (!isSamePassword) {
           return res
             .status(400)
@@ -150,7 +147,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
         .status(500)
         .render("auth/logout", { errorMessage: err.message });
     }
-    
+
     res.redirect("/");
   });
 });
