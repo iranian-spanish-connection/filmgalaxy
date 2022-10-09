@@ -17,6 +17,8 @@ ul {
 }
 
 .title {
+  font-size: 0.7rem;
+  color: grey;
   text-align: right;
   padding: 0 1rem;
 }
