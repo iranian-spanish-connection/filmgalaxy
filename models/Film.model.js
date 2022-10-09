@@ -18,7 +18,7 @@ const filmSchema = new Schema({
     },
     projectType: {
         type: String,
-        enum: [ "Feature", "Documentary", "Experimental"]
+        enum: [ "Fiction", "Documentary", "Experimental"]
     },
     image: {
         type: String,
@@ -36,5 +36,5 @@ const filmSchema = new Schema({
 })
 
 
-module.exports = Film;
+module.exports = model("Film", filmSchema);
 

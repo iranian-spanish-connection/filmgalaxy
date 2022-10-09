@@ -11,15 +11,19 @@ const festivalSchema = new Schema({
         type: String,
         enum: ["Onsite", "Online", "Onsite & Online"]
     },
-    eventDate: String,
+    eventStartDate: Date,
+    eventEndDate: Date,
     submissionDeadline: Date,
-    submittedFilms: {
+    entryFee: Number,
+    contactEmail: String,
+    website: String,
+    submittedFilms: [{
         type: Schema.Types.ObjectId,
         ref: "Film"
-    }
+    }]
 })
 
 
 
 
-module.exports = Festival;
+module.exports = model("Festival", festivalSchema);

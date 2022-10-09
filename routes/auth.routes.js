@@ -15,6 +15,9 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+
+//SIGNUP
+
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
@@ -62,9 +65,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
           passwordHash: hashedPassword,
         });
       })
-      .then((user) => {
+      .then((userFromDB) => {
         // Bind the user to the session object
-        req.session.user = user;
+        req.session.user = userFromDB;
         res.redirect("/");
       })
       .catch((error) => {
@@ -86,7 +89,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
-router.get("/login", isLoggedOut, (req, res) => {
+
+//LOGIN
+
+router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("auth/login");
 });
 
@@ -96,7 +102,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   if (!email) {
     return res
       .status(400)
-      .render("auth/login", { errorMessage: "Please provide your username." });
+      .render("auth/login", { errorMessage: "Please provide your email." });
   }
 
   // Here we use the same logic as above
@@ -109,23 +115,23 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ email })
-    .then((user) => {
+    .then((userFromDB) => {
       // If the user isn't found, send the message that user provided wrong credentials
-      if (!user) {
+      if (!userFromDB) {
         return res
           .status(400)
           .render("auth/login", { errorMessage: "Wrong credentials." });
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.passwordHash).then((isSamePassword) => {
+      bcrypt.compare(password, userFromDB.passwordHash).then((isSamePassword) => {
         if (!isSamePassword) {
           return res
             .status(400)
             .render("auth/login", { errorMessage: "Wrong credentials." });
         }
 
-        req.session.user = user;
+        req.session.user = userFromDB;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         return res.redirect("/");
       });
@@ -139,12 +145,15 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
+
+//LOGOUT 
+
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res
         .status(500)
-        .render("auth/logout", { errorMessage: err.message });
+        .render("/logout", { errorMessage: err.message });
     }
 
     res.redirect("/");
