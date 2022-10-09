@@ -15,11 +15,11 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", (req, res) => {
+router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signup", isLoggedOut, (req, res) => {
   const { email, password } = req.body;
   if (!email) {
     return res.status(400).render("auth/signup", {
@@ -86,13 +86,12 @@ router.post("/signup", (req, res) => {
   });
 });
 
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/login", isLoggedOut, (req, res, next) => {
   const { email, password } = req.body;
-  console.log("req.body>>>", req.body);
 
   if (!email) {
     return res
