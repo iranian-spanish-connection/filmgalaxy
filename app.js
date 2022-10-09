@@ -28,7 +28,6 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 app.use((req, res, next) => {
   res.locals.userInSession = req.session.user;
-  console.log("res.locals.userInSession>>>", res.locals.userInSession);
   next();
 });
 
@@ -39,8 +38,8 @@ app.use("/", require("./routes/festival.routes"));
 app.use("/", require("./routes/project.routes"));
 
 
-const festivalSearch = require("./routes/festivalsearch.routes");
-app.use("/", festivalSearch);
+// const festivalSearch = require("./routes/festivalsearch.routes");
+// app.use("/", festivalSearch);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
