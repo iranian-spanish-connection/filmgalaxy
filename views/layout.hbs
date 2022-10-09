@@ -9,6 +9,25 @@
   </head>
 
   <body>
+    
+    <nav>
+      <ul>
+        <li><a href="/">FilmGalaxy</a></li>
+        <li><a href="/how-it-works">How It Works</a></li>
+        <li><a href="/festivals">Browse Festivals</a></li>
+        {{#if userInSession}}
+          <a href="/user/profile">Profile Page</a>
+              <br>
+              <form id="logout-form" action="/logout" method="POST">
+                <button>Logout</button>
+              </form>
+        {{else}}
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+
 
     {{{body}}}
 

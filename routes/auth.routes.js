@@ -15,11 +15,14 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", (req, res) => {
+
+//SIGNUP
+
+router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signup", isLoggedOut, (req, res) => {
   const { email, password } = req.body;
   if (!email) {
     return res.status(400).render("auth/signup", {
@@ -62,9 +65,9 @@ router.post("/signup", (req, res) => {
           passwordHash: hashedPassword,
         });
       })
-      .then((user) => {
+      .then((userFromDB) => {
         // Bind the user to the session object
-        req.session.user = user;
+        // req.session.currentUuser = userFromDB;
         res.redirect("/");
       })
       .catch((error) => {
@@ -86,21 +89,19 @@ router.post("/signup", (req, res) => {
 });
 
 
-
-
-
+//LOGIN
 
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  if (!username) {
+  if (!email) {
     return res
       .status(400)
-      .render("auth/login", { errorMessage: "Please provide your username." });
+      .render("auth/login", { errorMessage: "Please provide your email." });
   }
 
   // Here we use the same logic as above
@@ -112,26 +113,26 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   }
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username })
-    .then((user) => {
+  User.findOne({ email })
+    .then((userFromDB) => {
       // If the user isn't found, send the message that user provided wrong credentials
-      if (!user) {
+      if (!userFromDB) {
         return res
           .status(400)
           .render("auth/login", { errorMessage: "Wrong credentials." });
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
+      bcrypt.compare(password, userFromDB.passwordHash).then((isSamePassword) => {
         if (!isSamePassword) {
           return res
             .status(400)
             .render("auth/login", { errorMessage: "Wrong credentials." });
         }
 
-        req.session.user = user;
+        req.session.currentUser = userFromDB;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/", { userInSession: req.session.currentUser });
       });
     })
 
@@ -143,12 +144,15 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
+
+//LOGOUT 
+
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res
         .status(500)
-        .render("auth/logout", { errorMessage: err.message });
+        .render("/logout", { errorMessage: err.message });
     }
     
     res.redirect("/");
