@@ -45,6 +45,6 @@ const Filmmaker = User.discriminator("Filmmaker", new Schema({
 // const Filmmaker = model("Filmmaker", filmmakerSchema)
 
 
-module.exports = {User, FestAdmin, Filmmaker};
-//module.exports = User;
+//module.exports = {User, FestAdmin, Filmmaker};
+module.exports = User;
 
