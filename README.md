@@ -8,6 +8,7 @@
 
 # TASKS
 
+- [ ] Add extra validations to models (unique, match...) -> ???
 - [ ] define at least ONE seeding to add 1 festival to try -> MOG
 - [ ] add a top menu -> GABRIEL
   - [ ] home, signup, login, logout
