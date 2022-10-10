@@ -1,6 +1,6 @@
-const Festival = require("../models/Festival.model");
-
 const router = require("express").Router();
+const Festival = require("../models/Festival.model");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/festivals", (req, res, next) => {
   Festival.find()
@@ -13,11 +13,7 @@ router.get("/festivals", (req, res, next) => {
     });
 });
 
-//   router.get("/profile/myfestival", (req, res) => {
-//     res.render("festivals/myfestival");
-// });
-
-router.get("/profile/myfestival", (req, res) => {
+router.get("/profile/myfestival", isLoggedIn, (req, res) => {
   Festival.findOne({ submitter: req.session.user._id })
     .then((festivalFromDB) => {
       res.render("festivals/myfestival", { festivalFromDB });
@@ -27,18 +23,17 @@ router.get("/profile/myfestival", (req, res) => {
     });
 });
 
-router.get("/profile/add-my-festival", (req, res) => {
+router.get("/profile/myfestival/create", isLoggedIn, (req, res) => {
   res.render("festivals/createfestival");
 });
 
-router.post("/profile/myfestival", (req, res) => {
+router.post("/profile/myfestival/create", isLoggedIn, (req, res) => {
   const myFestival = {
     title: req.body.title,
     submitter: req.session.user,
   };
   Festival.create(myFestival)
-    .then((myFestival) => {
-      //res.render("festivals/myfestival", { myFestival });
+    .then(() => {
       res.redirect("/profile/myfestival");
     })
     .catch((err) => {
@@ -46,7 +41,7 @@ router.post("/profile/myfestival", (req, res) => {
     });
 });
 
-router.post("/profile/myfestival/remove", (req, res, next) => {
+router.post("/profile/myfestival/remove", isLoggedIn, (req, res, next) => {
   console.log("something");
   Festival.findOneAndDelete({ submitter: req.session.user._id })
     .then((result) => {

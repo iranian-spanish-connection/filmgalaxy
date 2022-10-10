@@ -1,16 +1,16 @@
 <section class="heads" id="festival-head">
-    <div><h2 class="headlines">My Festival</h2></div>
+  <div><h2 class="headlines">My Festival</h2></div>
 </section>
 
 <div class="content-body">
-    {{#if festivalFromDB}}
-        <div>
-            <h3>{{festivalFromDB.title}}</h3>
-            <form action="/profile/myfestival/remove" method="POST">
-                <button type="submit">Remove My Festival</button>
-            </form>
-        </div>
-    {{else}}
-            <div id="add-festival"><a href ="/profile/add-my-festival">Add My Festival</a></div>
-    {{/if}}
+  {{#if festivalFromDB}}
+    <div>
+      <h3>{{festivalFromDB.title}}</h3>
+      <form action="/profile/myfestival/remove" method="POST">
+        <button type="submit">Remove My Festival</button>
+      </form>
+    </div>
+  {{else}}
+    <div id="add-festival"><a href="/profile/myfestival/create">Add My Festival</a></div>
+  {{/if}}
 </div>

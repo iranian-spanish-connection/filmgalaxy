@@ -1,18 +1,18 @@
 <section class="heads">
-    <div><h2 class="headlines">Projects</h2></div>
-    <div class="button">
-        <a class="btn" href="/profile/create">Add a Project</a>
-    </div>
+  <div><h2 class="headlines">Projects</h2></div>
+  <div class="button">
+    <a class="btn" href="/profile/projects/create">Add a Project</a>
+  </div>
 </section>
 <div class="content-body">
-    
-    {{#each projectsInDB}}
-        <div>
-            <img src="{{image}}" />
-            <h2>{{title}}</h2>
-            <p>Director: {{director}}</p>
-            <p>Runtime: {{runtime}} minutes</p>
-        </div>
-    {{/each}}
+
+  {{#each projectsInDB}}
+    <div>
+      <img src="{{image}}" />
+      <h2>{{title}}</h2>
+      <p>Director: {{director}}</p>
+      <p>Runtime: {{runtime}} minutes</p>
+    </div>
+  {{/each}}
 
 </div>
