@@ -1,7 +1,6 @@
-
 body {
   color: #000000;
-  padding: 50px; 
+  padding: 50px;
   margin: auto 5rem;
   font: 18px calibri;
   /*background: #a39cc0;  /* fallback for old browsers */
@@ -19,7 +18,6 @@ body {
   padding: 40px;
 }
 
-
 .content {
   background-color: rgb(255, 255, 255);
   padding-top: 0;
@@ -30,7 +28,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 #add-festival {
@@ -42,16 +39,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- } 
+}
 
- #add-festival > a {
+#add-festival > a {
   color: white;
- }
+}
 
 a {
   text-decoration: none;
 }
-
 
 ul {
   list-style: none;
@@ -62,7 +58,9 @@ ul {
   color: grey;
   text-align: right;
   padding: 0 1rem;
+  height: 12px;
 }
+
 .heads {
   display: flex;
   justify-content: flex-end;
@@ -70,7 +68,7 @@ ul {
 }
 
 #festival-head {
-align-items: flex-start;
+  align-items: flex-start;
 }
 
 .headlines {
@@ -81,6 +79,7 @@ align-items: flex-start;
   width: 150px;
   height: 150px;
 }
+
 .nav {
   display: flex;
   flex-flow: row nowrap;
@@ -99,6 +98,7 @@ align-items: flex-start;
   justify-content: flex-end;
   margin: 20 20px 20px auto;
 }
+
 .btn {
   color: #faf8f8;
   background-color: rgb(53, 118, 193);
@@ -106,15 +106,7 @@ align-items: flex-start;
   border-radius: 10px;
 }
 
-/*
-
-.content {
-  margin: 0 auto;
-  max-width: 75%;
-}
-
 .nav-link.active {
-  border-bottom: 1px solid #ff4b4c;
-  color: #ff4b4c;
-} 
-*/
+  color: purple;
+  font-weight: bold;
+}
