@@ -1,15 +1,22 @@
-<h3>Search Festivals</h3>
-
-<form action="" method="POST">
-    <input type="text" name="search" placeholder="Search festivals" />
-    <button type="submit">Search</button>
-</form>
-
-{{#each festivalsInDB}}
+<section class="heads" id="search">
+    <div><h2 class="headlines">Search Festivals</h2></div>
     <div>
-        <img src="{{image.url}}" />
-        <h2>{{title}}</h2>
-        <p>{{country}}</p>
-        <p>Submission Deadline: {{submissionDeadline}}
+        <form action="" method="POST">
+            <input type="text" name="search" placeholder="Search festivals" />
+            <button type="submit">Search</button>
+        </form>
     </div>
-{{/each}}
+</section>
+
+<div class="content-body">
+
+    {{#each festivalsInDB}}
+        <div>
+            <img src="{{image}}" />
+            <h2>{{title}}</h2>
+            <p>{{country}}</p>
+            <p>Submission Deadline: {{submissionDeadline}}
+        </div>
+    {{/each}}
+
+</div>

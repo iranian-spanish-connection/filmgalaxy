@@ -14,6 +14,7 @@ const festivalSchema = new Schema({
     eventStartDate: Date,
     eventEndDate: Date,
     submissionDeadline: Date,
+    image: String,
     entryFee: Number,
     contactEmail: String,
     website: String,

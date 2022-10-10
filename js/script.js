@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!target || !target.matches(selector)) {
       return;
     }
+    
 
     elems.forEach((elem) => elem.classList.remove("active"));
 
