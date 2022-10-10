@@ -6,4 +6,13 @@
 </section>
 <div class="content-body">
     
+    {{#each projectsInDB}}
+        <div>
+            <img src="{{image}}" />
+            <h2>{{title}}</h2>
+            <p>Director: {{director}}</p>
+            <p>Runtime: {{runtime}} minutes</p>
+        </div>
+    {{/each}}
+
 </div>
