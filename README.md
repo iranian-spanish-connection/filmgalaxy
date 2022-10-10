@@ -8,9 +8,6 @@
 
 # TASKS
 
-- [ ] Add validations 
-  - [ ] In models (unique, match...) -> ???
-  - [ ] Built-in form validations
 - [x] define at least ONE seeding to add 1 festival to try -> MOG
 - [x] add a top menu -> GABRIEL
   - [x] home, signup, login, logout
@@ -23,3 +20,7 @@
   - [ ] create a festival
   - [ ] add your project
 - [x] add session config file -> MOG
+- [ ] Add validations 
+  - [ ] In models (unique, match...) -> ???
+  - [ ] Built-in form validations
+  - [ ] Uncomment password validation in auth.routes.js
