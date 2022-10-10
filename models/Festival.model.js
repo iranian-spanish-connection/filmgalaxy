@@ -3,7 +3,10 @@ const { Schema, model } = require("mongoose");
 
 const festivalSchema = new Schema({
 
-    title: String,
+    title: {
+       type: String,
+       required: true
+    },
     country: String,
     location: String,
     timeZone: String,
@@ -18,6 +21,10 @@ const festivalSchema = new Schema({
     entryFee: Number,
     contactEmail: String,
     website: String,
+    submitter: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     submittedFilms: [{
         type: Schema.Types.ObjectId,
         ref: "Film"
