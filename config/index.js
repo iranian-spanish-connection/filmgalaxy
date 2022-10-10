@@ -17,8 +17,8 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
-// ℹ️ Session middleware for authentication
-// https://www.npmjs.com/package/express-session
+// // ℹ️ Session middleware for authentication
+// // https://www.npmjs.com/package/express-session
 const session = require("express-session");
 
 // ℹ️ MongoStore in order to save the user session in the database
@@ -53,11 +53,18 @@ module.exports = (app) => {
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
-      secret: process.env.SESSION_SECRET || "super hyper secret key",
-      resave: false,
+      secret: process.env.SESSION_SECRET,
+      resave: true,
       saveUninitialized: false,
+      cookie: {
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: process.env.NODE_ENV === "production",
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24, // 24h
+      },
       store: MongoStore.create({
-        mongoUrl: MONGO_URI,
+        mongoUrl: MONGO_URI || "mongodb://localhost/filmgalaxy",
+        ttl: 60 * 60 * 24, // 60sec * 60min * 24h => 1 day
       }),
     })
   );

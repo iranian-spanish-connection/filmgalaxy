@@ -8,8 +8,10 @@
 
 # TASKS
 
-- [ ] Add extra validations to models (unique, match...) -> ???
-- [ ] define at least ONE seeding to add 1 festival to try -> MOG
+- [ ] Add validations 
+  - [ ] In models (unique, match...) -> ???
+  - [ ] Built-in form validations
+- [x] define at least ONE seeding to add 1 festival to try -> MOG
 - [x] add a top menu -> GABRIEL
   - [x] home, signup, login, logout
   - [x] list of festivals
@@ -20,4 +22,4 @@
   - [ ] list of festivals
   - [ ] create a festival
   - [ ] add your project
-- [ ] add session config file -> MOG
+- [x] add session config file -> MOG
