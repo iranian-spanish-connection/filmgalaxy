@@ -15,7 +15,6 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-
 //SIGNUP
 
 router.get("/signup", isLoggedOut, (req, res) => {
@@ -39,7 +38,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
   if (!regex.test(password)) {
-    return res.status(400).render("signup", {
+    return res.status(400).render("auth/signup", {
       errorMessage:
         "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
@@ -89,7 +88,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
-
 //LOGIN
 
 router.get("/login", isLoggedOut, (req, res, next) => {
@@ -124,17 +122,19 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, userFromDB.passwordHash).then((isSamePassword) => {
-        if (!isSamePassword) {
-          return res
-            .status(400)
-            .render("auth/login", { errorMessage: "Wrong credentials." });
-        }
+      bcrypt
+        .compare(password, userFromDB.passwordHash)
+        .then((isSamePassword) => {
+          if (!isSamePassword) {
+            return res
+              .status(400)
+              .render("auth/login", { errorMessage: "Wrong credentials." });
+          }
 
-        req.session.user = userFromDB;
-        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
-      });
+          req.session.user = userFromDB;
+          // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
+          return res.redirect("/");
+        });
     })
 
     .catch((err) => {
@@ -145,15 +145,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-
-//LOGOUT 
+//LOGOUT
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      return res
-        .status(500)
-        .render("/logout", { errorMessage: err.message });
+      return res.status(500).render("/logout", { errorMessage: err.message });
     }
 
     res.redirect("/");
