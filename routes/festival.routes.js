@@ -6,7 +6,6 @@ const router = require("express").Router();
 router.get("/festivals", (req, res, next) => {
   Festival.find()
   .then((festivalsInDB) => {
-    console.log(festivalsInDB)
       res.render("festivals/list", {festivalsInDB})
   })
   .catch(err => {
@@ -18,14 +17,10 @@ router.get("/festivals", (req, res, next) => {
 //     res.render("festivals/myfestival");
 // });
 
-    router.get("/profile/myfestival", (req, res) => {
-    console.log(req.session.user)
+    router.get("/profile/myfestival", (req, res, next) => {
     Festival.findOne({submitter: req.session.user._id })
     .then((festivalFromDB)=>{
-      console.log(festivalFromDB)
-        if(festivalFromDB){
           res.render("festivals/myfestival", {festivalFromDB});
-        } 
     })
     .catch(err=>{
       console.log("Error getting my festival from db", err)
@@ -33,11 +28,11 @@ router.get("/festivals", (req, res, next) => {
   });
 
 
-router.get("/profile/add-my-festival", (req, res) => {
+router.get("/profile/add-my-festival", (req, res, next) => {
   res.render("festivals/createfestival");
 });
 
-router.post("/profile/myfestival", (req, res) => {
+router.post("/profile/myfestival", (req, res, next) => {
   const myFestival = {
     title: req.body.title,
     submitter: req.session.user
