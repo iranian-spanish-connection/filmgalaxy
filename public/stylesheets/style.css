@@ -12,13 +12,16 @@ body {
 
 .content-body {
   background-color: rgb(208, 206, 206);
-  width: 100%;
+  width: 75%;
   height: auto;
   min-height: 100%;
 }
 
 .content-body > form {
   padding: 40px;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
 }
 
 .content {

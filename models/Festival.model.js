@@ -1,12 +1,12 @@
 const { Schema, model } = require("mongoose");
 
-
 const festivalSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: String,
 
-    title: {
-       type: String,
-       required: true
-    },
     description: String,
     country: String,
     location: String,

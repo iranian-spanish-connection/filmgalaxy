@@ -2,8 +2,6 @@ const router = require("express").Router();
 const Festival = require("../models/Festival.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-
-
 //BROWSE FESTIVALS PAGE
 
 router.get("/festivals", (req, res, next) => {
@@ -16,7 +14,18 @@ router.get("/festivals", (req, res, next) => {
     });
 });
 
+//SEARCH FESTIVALS PAGE
 
+router.post("/festivals", (req, res, next) => {
+  const textToFind = req.body.search.trim();
+  Festival.find({ title: { $regex: ".*" + textToFind + ".*" } })
+    .then((festivalsInDB) => {
+      res.render("festivals/list", { festivalsInDB });
+    })
+    .catch((err) => {
+      console.log("Error getting festivals from DB", err);
+    });
+});
 
 //MY FESTIVAL
 
@@ -34,15 +43,11 @@ router.get("/profile/myfestival", (req, res) => {
     });
 });
 
-
-
 //ADD MY FESTIVAL
 
 router.get("/profile/add-my-festival", (req, res, next) => {
   res.render("festivals/createfestival");
 });
-
-
 
 router.post("/profile/myfestival/create", (req, res, next) => {
   const myFestival = {
@@ -64,7 +69,7 @@ router.post("/profile/myfestival/create", (req, res, next) => {
     logo: req.body.logo,
     submitter: req.session.user,
     submittedFilms: req.body.submittedFilms,
-  }
+  };
   Festival.create(myFestival)
     .then(() => {
       res.redirect("/profile/myfestival");
@@ -74,22 +79,18 @@ router.post("/profile/myfestival/create", (req, res, next) => {
     });
 });
 
-
-
-
 //EDIT MY FESTIVAL
 
 router.get("/profile/myfestival/edit", (req, res, next) => {
-  Festival.findOne({ submitter: req.session.user._id }) 
-  .then((myFestival) => {
-      res.render("festivals/editfestival", {myFestival})
-  })
-  .catch(err => {
-    console.log("Error editing my festival", err);
-    next();
-  });
+  Festival.findOne({ submitter: req.session.user._id })
+    .then((myFestival) => {
+      res.render("festivals/editfestival", { myFestival });
+    })
+    .catch((err) => {
+      console.log("Error editing my festival", err);
+      next();
+    });
 });
-
 
 router.post("/profile/myfestival/edit", (req, res, next) => {
   const updateMyFestival = {
@@ -111,18 +112,18 @@ router.post("/profile/myfestival/edit", (req, res, next) => {
     logo: req.body.logo,
     submitter: req.session.user,
     submittedFilms: req.body.submittedFilms,
-  }
-  Festival.findOneAndUpdate({ submitter: req.session.user._id }, updateMyFestival)
-  .then((result) => {
-   res.redirect("/profile/myfestival")
-     
-  })
-  .catch(err => {
-    console.log("Error updating my festival", err)
-  })
-})
-
-
+  };
+  Festival.findOneAndUpdate(
+    { submitter: req.session.user._id },
+    updateMyFestival
+  )
+    .then((result) => {
+      res.redirect("/profile/myfestival");
+    })
+    .catch((err) => {
+      console.log("Error updating my festival", err);
+    });
+});
 
 //DELETE MY FESTIVAL
 
@@ -137,14 +138,10 @@ router.post("/profile/myfestival/remove", (req, res, next) => {
     });
 });
 
-
-
-
 //MANAGE MY FESTIVAL
 
-router.get("/profile/myfestival/manage", (req, res, next)=>{
-  res.render("festivals/manage")
-})
-
+router.get("/profile/myfestival/manage", (req, res, next) => {
+  res.render("festivals/manage");
+});
 
 module.exports = router;
