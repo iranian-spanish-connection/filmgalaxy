@@ -14,16 +14,30 @@ router.get("/festivals", (req, res, next) => {
     });
 });
 
-//SEARCH FESTIVALS PAGE
+//SEARCH FESTIVALS
 
 router.post("/festivals", (req, res, next) => {
-  const textToFind = req.body.search.trim();
+  const textToFind = req.body.search ? req.body.search.trim() : "";
   Festival.find({ title: { $regex: ".*" + textToFind + ".*" } })
     .then((festivalsInDB) => {
       res.render("festivals/list", { festivalsInDB });
     })
     .catch((err) => {
       console.log("Error getting festivals from DB", err);
+    });
+});
+
+//FESTIVAL DETAILS
+
+router.get("/festivals/:festivalId", (req, res, next) => {
+  const festivalId = req.params.festivalId;
+  Festival.findById(festivalId)
+    .then((festivalFromDB) => {
+      res.render("festivals/festival-details", festivalFromDB);
+    })
+    .catch((err) => {
+      console.log("error getting festival details from DB", err);
+      next();
     });
 });
 

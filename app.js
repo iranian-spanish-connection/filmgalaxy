@@ -13,6 +13,12 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+// Handlebars helper
+const H = require("just-handlebars-helpers");
+
+// Register just-handlebars-helpers with handlebars
+H.registerHelpers(hbs);
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
