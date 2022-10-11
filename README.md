@@ -32,7 +32,7 @@
   
     
 
-- [ ] Add validations 
+- [ ] Add validations   -> GABRIEL
   - [ ] In models (unique, match...) -> ???
   - [ ] Built-in form validations
   - [ ] Uncomment password validation in auth.routes.js
