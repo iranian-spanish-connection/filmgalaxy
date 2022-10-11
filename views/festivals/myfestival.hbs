@@ -6,11 +6,30 @@
     {{#if festivalFromDB}}
         <div>
             <h1>{{festivalFromDB.title}}</h1>
+            <p>Poster {{festivalFromDB.poster}}</p>
+            <p>Logo {{festivalFromDB.logo}}</p>
+
             <a href="/profile/myfestival/edit">Edit My Festival</a> |
             <a href="/profile/myfestival/manage">Manage My Festival</a>
             <form action="/profile/myfestival/remove" method="POST">
                 <button type="submit">Remove My Festival</button>
             </form>
+            <h3>Festival Information</h3>
+            <p><strong>Brief Description</strong>  {{festivalFromDB.description}}</p>
+            <p><strong>Country</strong> {{festivalFromDB.country}}</p>
+            <p><strong>Location</strong>  {{festivalFromDB.location}}</p>
+            <p><strong>Format</strong>  {{festivalFromDB.format}}</p>
+            <p><strong>Event Start Date</strong>  {{festivalFromDB.eventStartDate}}</p>
+            <p><strong>Event End Date</strong>  {{festivalFromDB.eventEndDate}}</p>
+            <p><strong>Submission Deadline</strong>  {{festivalFromDB.submissionDeadline}}</p>
+            <p><strong>Entry fee</strong>  {{festivalFromDB.entryFee}}</p>
+            <p><strong>Projects to Submit</strong>  {{festivalFromDB.acceptedCategories}}</p>
+            <p><strong>Accepted Project Length</strong>  {{festivalFromDB.acceptedLength}}</p>
+            
+            <h3>Contacts</h3>
+            <p><strong>Contact Person</strong>  {{festivalFromDB.contactPerson}}</p>
+            <p><strong>Contact Email</strong>  {{festivalFromDB.contactEmail}}</p>
+            <p><strong>Website</strong>  {{festivalFromDB.website}}</p>
         </div>
     {{else}}
             <div id="add-festival"><a href ="/profile/add-my-festival">Add My Festival</a></div>
