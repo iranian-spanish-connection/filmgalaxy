@@ -1,6 +1,6 @@
-const Film = require("../models/Film.model");
-
 const router = require("express").Router();
+const Film = require("../models/Film.model");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 //PROJECTS PAGE
@@ -15,7 +15,7 @@ router.get("/profile/projects", (req, res) => {
   })
 });
 
-router.get("/profile/create", (req, res) => {
+router.get("/profile/projects/create", isLoggedIn, (req, res) => {
   res.render("projects/create");
 });
 
@@ -46,13 +46,13 @@ router.post("/profile/create", (req, res) => {
       submittedInFestivals: req.body.submittedInFestivals,
   }
   Film.create(newProject)
-  .then(() => {
-    console.log("Project was added successfully")
-    res.redirect("/profile/projects")
-  })
-  .catch(err => {
-    console.log("There is an error adding project to DB", err)
-  })
+    .then(() => {
+      console.log("Project was added successfully");
+      res.redirect("/profile/projects");
+    })
+    .catch((err) => {
+      console.log("There is an error adding project to DB", err);
+    });
 });
 
 

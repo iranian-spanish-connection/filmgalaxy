@@ -1,6 +1,6 @@
-const Festival = require("../models/Festival.model");
-
 const router = require("express").Router();
+const Festival = require("../models/Festival.model");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 
@@ -50,8 +50,7 @@ router.post("/profile/myfestival", (req, res, next) => {
     submitter: req.session.user,
   };
   Festival.create(myFestival)
-    .then((myFestival) => {
-      //res.render("festivals/myfestival", { myFestival });
+    .then(() => {
       res.redirect("/profile/myfestival");
     })
     .catch((err) => {
