@@ -26,7 +26,8 @@
   - [ ] edit project   -> MOG
   - [ ] Implement Browse Festivals's Searchbox  -> GABRIEL
   - [ ] submit project in festival (to be done from the project details page) -> GABRIEL
-    - [ ] Try from Browser Festivals
+    - [X] Search Festivals
+    - [ ] Browser Festivals Pagination
     - [ ] Select box with all your projects, select one and submit
   - [ ] How to add images for Festivals and Projects (Ironhack) -> GABRIEL
   
