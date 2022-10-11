@@ -25,9 +25,8 @@ router.post(
   "/profile/projects/create",
   fileUploader.array("file", 12),
   (req, res) => {
-    console.log("req.files>>>", req.files);
     const posterPath = req.files[0].path;
-    const stillPaths = req.files.slice(1).map((file) => file.path);
+    const photosPaths = req.files.slice(1).map((file) => file.path);
     const newProject = {
       title: req.body.title,
       country: req.body.country,
@@ -43,7 +42,7 @@ router.post(
       projectlength: req.body.projectlength,
       projectType: req.body.projectType,
       poster: posterPath,
-      still: stillPaths,
+      photos: photosPaths,
       trailer: req.body.trailer,
       preview: req.body.preview,
       submitter: req.session.user,

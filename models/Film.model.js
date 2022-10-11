@@ -31,7 +31,7 @@ const filmSchema = new Schema({
     type: String,
     URL,
   },
-  still: [
+  photos: [
     {
       type: String,
       URL,

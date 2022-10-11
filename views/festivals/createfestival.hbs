@@ -4,7 +4,7 @@
 
 <div class="content-body">
 
-<form action="/profile/myfestival/create" method="POST">
+<form action="/profile/myfestival/create" method="POST" enctype="multipart/form-data">
 
 
     <h2>Festival Information</h2>
@@ -294,8 +294,25 @@
 
 
     <h2>Festival Files</h2>
-    <label>Poster <button type="" name="poster">Upload</button></label>
-    <label>Logo <button type="" name="logo">Upload</button></label>
+
+    {{! FILES }}
+    <label for="poster" class="form-label">Poster
+      <input
+        class="form-control"
+        type="file"
+        id="poster"
+        name="file"
+      /></label>
+
+    <label for="stills" class="form-label">Still Photos
+      <input
+        class="form-control"
+        type="file"
+        id="stills"
+        name="file"
+        multiple
+      /></label>
+    {{! FILES }}    
 
     <br/> 
     <button type="submit">Save My Festival</button>

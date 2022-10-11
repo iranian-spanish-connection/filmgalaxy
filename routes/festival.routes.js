@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Festival = require("../models/Festival.model");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const fileUploader = require("../config/cloudinary.config");
 
 //BROWSE FESTIVALS PAGE
 
@@ -63,35 +63,42 @@ router.get("/profile/add-my-festival", (req, res, next) => {
   res.render("festivals/createfestival");
 });
 
-router.post("/profile/myfestival/create", (req, res, next) => {
-  const myFestival = {
-    title: req.body.title,
-    description: req.body.description,
-    country: req.body.country,
-    location: req.body.location,
-    format: req.body.format,
-    eventStartDate: req.body.eventStartDate,
-    eventEndDate: req.body.eventEndDate,
-    submissionDeadline: req.body.submissionDeadline,
-    entryFee: req.body.entryFee,
-    acceptedCategories: req.body.acceptedCategories,
-    acceptedLength: req.body.acceptedLength,
-    contactPerson: req.body.contactPerson,
-    contactEmail: req.body.contactEmail,
-    website: req.body.website,
-    poster: req.body.poster,
-    logo: req.body.logo,
-    submitter: req.session.user,
-    submittedFilms: req.body.submittedFilms,
-  };
-  Festival.create(myFestival)
-    .then(() => {
-      res.redirect("/profile/myfestival");
-    })
-    .catch((err) => {
-      console.log("Error creating my festival", err);
-    });
-});
+router.post(
+  "/profile/myfestival/create",
+  fileUploader.array("file", 12),
+  (req, res, next) => {
+    const posterPath = req.files[0].path;
+    const photosPaths = req.files.slice(1).map((file) => file.path);
+
+    const myFestival = {
+      title: req.body.title,
+      description: req.body.description,
+      country: req.body.country,
+      location: req.body.location,
+      format: req.body.format,
+      eventStartDate: req.body.eventStartDate,
+      eventEndDate: req.body.eventEndDate,
+      submissionDeadline: req.body.submissionDeadline,
+      entryFee: req.body.entryFee,
+      acceptedCategories: req.body.acceptedCategories,
+      acceptedLength: req.body.acceptedLength,
+      contactPerson: req.body.contactPerson,
+      contactEmail: req.body.contactEmail,
+      website: req.body.website,
+      poster: posterPath,
+      photos: photosPaths,
+      submitter: req.session.user,
+      submittedFilms: req.body.submittedFilms,
+    };
+    Festival.create(myFestival)
+      .then(() => {
+        res.redirect("/profile/myfestival");
+      })
+      .catch((err) => {
+        console.log("Error creating my festival", err);
+      });
+  }
+);
 
 //EDIT MY FESTIVAL
 

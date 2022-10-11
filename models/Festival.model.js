@@ -7,34 +7,33 @@ const festivalSchema = new Schema({
   },
   description: String,
 
-    description: String,
-    country: String,
-    location: String,
-    format: {
-        type: String,
+  description: String,
+  country: String,
+  location: String,
+  format: {
+    type: String,
+  },
+  eventStartDate: Date,
+  eventEndDate: Date,
+  submissionDeadline: Date,
+  entryFee: Number,
+  acceptedCategories: [String],
+  acceptedLength: [String],
+  contactPerson: String,
+  contactEmail: String,
+  website: String,
+  poster: String,
+  photos: [String],
+  submitter: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  submittedFilms: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Film",
     },
-    eventStartDate: Date,
-    eventEndDate: Date,
-    submissionDeadline: Date,
-    entryFee: Number,
-    acceptedCategories: [String],
-    acceptedLength: [String],
-    contactPerson: String,
-    contactEmail: String,
-    website: String,
-    poster: String,
-    logo: String,
-    submitter: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    },
-    submittedFilms: [{
-        type: Schema.Types.ObjectId,
-        ref: "Film"
-    }]
-})
-
-
-
+  ],
+});
 
 module.exports = model("Festival", festivalSchema);
