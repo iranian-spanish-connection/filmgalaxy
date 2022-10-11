@@ -37,6 +37,7 @@
   - [ ] In models (unique, match...) -> ???
   - [ ] Built-in form validations
   - [ ] Uncomment password validation in auth.routes.js
+- [ ] Change routes to get navigation bar highlight the current well
 - [ ] Login & Signup pages in a popup just like filmfreeway
 - [ ] Implement Bootstrap cards for every festival  
 - [ ] Google Map to add the localtion of the festival
