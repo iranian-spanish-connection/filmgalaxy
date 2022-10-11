@@ -7,28 +7,48 @@ const filmSchema = new Schema({
         type: String,
         required: true,
     },
-    country: String,
-    completionDate: Date,
-    runtime: Number,
-    director: String,
-    synopsis: String,
-    projectlength: {
+    country: {
         type: String,
-        enum: [ "Long", "middle-length", "short"]
-    },
-    projectType: {
-        type: String,
-        enum: [ "Fiction", "Documentary", "Experimental"]
-    },
-    image: {
-        type: String,
-        URL
     },
     language: {
         type: String,
-        enum: []
     },
-    genre: String,
+    genre: {
+        type: String
+    },
+    completionDate: Date,
+    runtime: Number,
+    director: String,
+    writer: String,
+    cast:[String],
+    producer: String,
+    synopsis: String,
+    projectlength: {
+        type: String,
+    },
+    projectType: {
+        type: String,
+    },
+    poster: {
+        type: String,
+        URL
+    },
+    still: {
+        type: String,
+        URL
+    },
+    trailer: {
+        type: String,
+        URL
+    },
+    preview: {
+        type: String,
+        URL
+    },
+    submitter: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     submittedInFestivals: [{
         type: Schema.Types.ObjectId,
         ref: "FilmFestival"

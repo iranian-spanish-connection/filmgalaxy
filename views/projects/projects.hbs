@@ -12,6 +12,13 @@
             <h2>{{title}}</h2>
             <p>Director: {{director}}</p>
             <p>Runtime: {{runtime}} minutes</p>
+
+            <a href="/profile/projects/{{this.title}}">View</a>
+            <a href="/profile/projects/{{this.title}}/edit">Edit</a>
+            
+            <form action="/profile/projects/{{this.title}}/remove" method="POST">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     {{/each}}
 

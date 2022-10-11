@@ -1,17 +1,17 @@
 <section class="heads">
-<div><h2 class="headlines">Add a new project</h2></div>
+<div><h2 class="headlines">Edit My project</h2></div>
 </section>
 
 <div class="content-body">
 
-<form action="/profile/create" method="POST">
+<form action="/profile/projects/{{this.title}}/edit" method="POST">
 
     <h2>Project Information</h2>
-    <label>Project Title (English) <input type="text" name="title"/></label>
-    <label>Brief Synopsis (English) <textarea type="text" name="synopsis" rows="4" cols="50"/></textarea>
+    <label>Project Title (English) <input type="text" name="title" value="{{this.title}}"/></label>
+    <label>Brief Synopsis (English) <textarea type="text" name="synopsis" rows="4" cols="50"/>{{synopsis}}</textarea>
     <h2>Specifications</h2>
     <label>Country of Origin 
-            <select id="country" name="country" class="form-control">
+            <select id="country" name="country" class="form-control" value="{{country}}">
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -255,7 +255,7 @@
             </select>
     </label>
     <label>Original Language 
-        <select data-placeholder="Choose a Language..." name="language">
+        <select data-placeholder="Choose a Language..." name="language" value="{{this.language}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Afrikaans">Afrikaans</option>
             <option value="Albanian">Albanian</option>
@@ -331,9 +331,9 @@
             <option value="Xhosa">Xhosa</option>
         </select>
     </label>
-    <label>Completion Date <input type="date" name="completionDate"/></label>
+    <label>Completion Date <input type="date" name="completionDate" value={{this.completionDate}}/></label>
     <label>Genres 
-        <select name="genre">
+        <select name="genre" value="{{this.genre}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Drama">Drama</option>
             <option value="Comedy">Comedy</option>
@@ -351,7 +351,7 @@
         </select>    
     </label>
     <label>Project Type 
-        <select name="projectType">
+        <select name="projectType" value="{{this.projectType}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Fiction">Fiction</option>
             <option value="Documentary">Documentary</option>
@@ -360,19 +360,19 @@
         </select>
     </label>
     <label>Project Length Category 
-        <select name="projectlength">
+        <select name="projectlength" value="{{this.projectlength}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Feature-length">Feature-length</option>
             <option value="Medium-length">Medium-length</option>
             <option value="Short Film">Short Film</option>
         </select>
     </label>
-    <label>Runtime (minutes) <input type="number" name="runtime" min="1" max="300"/></label>
+    <label>Runtime (minutes) <input type="number" name="runtime" min="1" max="300" value="{{this.runtime}}"/></label>
     <h2>Credits</h2>
-    <label>Director <input type="text" name="director"/></label>
-    <label>Writer <input type="text" name="writer"/></label>
-    <label>Cast <input type="text" name="cast"/></label>
-    <label>Producer <input type="text" name="producer"/></label>
+    <label>Director <input type="text" name="director" value="{{this.director}}"/></label>
+    <label>Writer <input type="text" name="writer" value="{{this.writer}}"/></label>
+    <label>Cast <input type="text" name="cast" value="{{this.cast}}"/></label>
+    <label>Producer <input type="text" name="producer" value="{{this.producer}}"/></label>
 
     <h2>Project Files</h2>
     <label>Poster <button type="" name="poster">Upload</button></label>
@@ -381,6 +381,6 @@
     <label>Preview <input type="text" name="preview"/></label>
 
     <br/> 
-    <button type="submit">Save Project</button>
+    <button type="submit">Save Changes</button>
 </form>
 </div>

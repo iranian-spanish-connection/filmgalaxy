@@ -6,13 +6,17 @@
 
 <form action="/profile/myfestival" method="POST">
 
+
     <h2>Festival Information</h2>
     <label>Festival Title (English) <input type="text" name="title"/></label>
-    <label>Brief Description (English) <textarea type="text" name="synopsis" rows="4" cols="50"/></textarea>
+    <label>Brief Description (English) <textarea type="text" name="description" rows="4" cols="50"/></textarea>
+
+
     <h2>Specifications</h2>
     <label>Country
             <select id="country" name="country" class="form-control">
-                <option value="Afghanistan" selected>Afghanistan</option>
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
                 <option value="American Samoa">American Samoa</option>
@@ -253,29 +257,45 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
     </label>
-    <label>Event Date <input type="date" name="completionDate"/></label>
+    <label>Location <input type="text" name="location"/></label>
+    <label>Format
+        <select name="format">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="Onsite">Onsite</option>
+            <option value="Online">Online</option>
+            <option value="Hybrid">Hybrid (Online & Onsite)</option>
+        </select>
+    </label>
+    <label>Event Start Date <input type="date" name="eventStartDate"/></label>
+    <label>Event End Date <input type="date" name="eventEndDate"/></label>
+    <label>Submission Deadline <input type="date" name="submissionDeadline"/></label>
+    <label>Entry fee <input type="number" min="0" name="entryFee"/></label>
     <label>Projects to Submit
-        <select multiple>
-            <option value="projectType">Fiction</option>
-            <option value="projectType">Documentary</option>
-            <option value="projectType">Experimental</option>
-            <option value="projectType">Animation</option>
+        <select multiple name="acceptedCategories">
+            <option value="Fiction">Fiction</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Experimental">Experimental</option>
+            <option value="Animation">Animation</option>
         </select>
     </label>
     <label>Accepted Project Length 
-        <select multiple>
-            <option value="projectType">Feature-length</option>
-            <option value="projectType">Medium-length</option>
-            <option value="projectType">Short Film</option>
+        <select multiple name="acceptedLength">
+            <option value="Feature-length">Feature-length</option>
+            <option value="Medium-length">Medium-length</option>
+            <option value="Short Film">Short Film</option>
         </select>
     </label>
+
+
     <h2>Contacts</h2>
-    <label>Contact Person <input type="text" name="director"/></label>
-    <label>Contact Email <input type="text" name="writer"/></label>
+    <label>Contact Person <input type="text" name="contactPerson"/></label>
+    <label>Contact Email <input type="email" name="contactEmail"/></label>
+    <label>Website<input type="text" name="website"/></label>
+
 
     <h2>Festival Files</h2>
     <label>Poster <button type="" name="poster">Upload</button></label>
-    <label>Logo <button type="" name="stills">Upload</button></label>
+    <label>Logo <button type="" name="logo">Upload</button></label>
 
     <br/> 
     <button type="submit">Save Project</button>

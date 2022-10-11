@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const selector = ".nav-link";
     const elems = Array.from(document.querySelectorAll(selector));
     elems.forEach((elem) => {
-      console.log("window.location.href>>>", window.location.href);
-      console.log("elem.href>>>", elem.href);
       if (window.location.href.endsWith(elem.href)) {
         elem.classList.add("active");
       } else {

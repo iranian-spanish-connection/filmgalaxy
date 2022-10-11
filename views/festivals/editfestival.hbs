@@ -1,19 +1,18 @@
 <section class="heads">
-<div><h2 class="headlines">Add a new project</h2></div>
+<div><h2 class="headlines">Edit My Festival</h2></div>
 </section>
 
 <div class="content-body">
+{{#if myFestival}}
+<form action="/profile/myfestival/edit" method="POST">
 
-<form action="/profile/create" method="POST">
-
-    <h2>Project Information</h2>
-    <label>Project Title (English) <input type="text" name="title"/></label>
-    <label>Brief Synopsis (English) <textarea type="text" name="synopsis" rows="4" cols="50"/></textarea>
+    <h2>Festival Information</h2>
+    <label>Festival Title (English) <input type="text" name="title" value="{{myFestival.title}}"/></label>
+    <label>Brief Description (English) <textarea type="text" name="synopsis" rows="4" cols="50" />{{myFestival.description}}</textarea>
     <h2>Specifications</h2>
-    <label>Country of Origin 
-            <select id="country" name="country" class="form-control">
-                <option value="" selected disabled hidden>Choose here</option>
-                <option value="Afghanistan">Afghanistan</option>
+    <label>Country
+            <select id="country" name="country" class="form-control" value="{{myFestival.country}}">
+                <option value="Afghanistan" selected>Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
                 <option value="American Samoa">American Samoa</option>
@@ -254,133 +253,32 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
     </label>
-    <label>Original Language 
-        <select data-placeholder="Choose a Language..." name="language">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Afrikaans">Afrikaans</option>
-            <option value="Albanian">Albanian</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Armenian">Armenian</option>
-            <option value="Basque">Basque</option>
-            <option value="Bengali">Bengali</option>
-            <option value="Bulgarian">Bulgarian</option>
-            <option value="Catalan">Catalan</option>
-            <option value="Cambodian">Cambodian</option>
-            <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
-            <option value="Croatian">Croatian</option>
-            <option value="Czech">Czech</option>
-            <option value="Danish">Danish</option>
-            <option value="Dutch">Dutch</option>
-            <option value="English">English</option>
-            <option value="Estonian">Estonian</option>
-            <option value="Fiji">Fiji</option>
-            <option value="Finnish">Finnish</option>
-            <option value="French">French</option>
-            <option value="Georgian">Georgian</option>
-            <option value="German">German</option>
-            <option value="Greek">Greek</option>
-            <option value="Gujarati">Gujarati</option>
-            <option value="Hebrew">Hebrew</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Hungarian">Hungarian</option>
-            <option value="Icelandic">Icelandic</option>
-            <option value="Indonesian">Indonesian</option>
-            <option value="Irish">Irish</option>
-            <option value="Italian">Italian</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Javanese">Javanese</option>
-            <option value="Korean">Korean</option>
-            <option value="Latin">Latin</option>
-            <option value="Latvian">Latvian</option>
-            <option value="Lithuanian">Lithuanian</option>
-            <option value="Macedonian">Macedonian</option>
-            <option value="Malay">Malay</option>
-            <option value="Malayalam">Malayalam</option>
-            <option value="Maltese">Maltese</option>
-            <option value="Maori">Maori</option>
-            <option value="Marathi">Marathi</option>
-            <option value="Mongolian">Mongolian</option>
-            <option value="Nepali">Nepali</option>
-            <option value="Norwegian">Norwegian</option>
-            <option value="Persian">Persian</option>
-            <option value="Polish">Polish</option>
-            <option value="Portuguese">Portuguese</option>
-            <option value="Punjabi">Punjabi</option>
-            <option value="Quechua">Quechua</option>
-            <option value="Romanian">Romanian</option>
-            <option value="Russian">Russian</option>
-            <option value="Samoan">Samoan</option>
-            <option value="Serbian">Serbian</option>
-            <option value="Slovak">Slovak</option>
-            <option value="Slovenian">Slovenian</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Swahili">Swahili</option>
-            <option value="Swedish ">Swedish </option>
-            <option value="Tamil">Tamil</option>
-            <option value="Tatar">Tatar</option>
-            <option value="Telugu">Telugu</option>
-            <option value="Thai">Thai</option>
-            <option value="Tibetan">Tibetan</option>
-            <option value="Tonga">Tonga</option>
-            <option value="Turkish">Turkish</option>
-            <option value="Ukrainian">Ukrainian</option>
-            <option value="Urdu">Urdu</option>
-            <option value="Uzbek">Uzbek</option>
-            <option value="Vietnamese">Vietnamese</option>
-            <option value="Welsh">Welsh</option>
-            <option value="Xhosa">Xhosa</option>
+    <label>Event Date <input type="date" name="completionDate"/></label>
+    <label>Projects to Submit
+        <select multiple>
+            <option value="projectType">Fiction</option>
+            <option value="projectType">Documentary</option>
+            <option value="projectType">Experimental</option>
+            <option value="projectType">Animation</option>
         </select>
     </label>
-    <label>Completion Date <input type="date" name="completionDate"/></label>
-    <label>Genres 
-        <select name="genre">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Drama">Drama</option>
-            <option value="Comedy">Comedy</option>
-            <option value="War">War</option>
-            <option value="Horror">Horror</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Action">Action</option>
-            <option value="Science-Fiction">Science-Fiction</option>
-            <option value="Romance">Romance</option>
-            <option value="Music">Music</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Western">Western</option>
-            <option value="Crime">Crime</option>
-            <option value="History">History</option>
-        </select>    
-    </label>
-    <label>Project Type 
-        <select name="projectType">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Experimental">Experimental</option>
-            <option value="Animation">Animation</option>
+    <label>Accepted Project Length 
+        <select multiple>
+            <option value="projectType">Feature-length</option>
+            <option value="projectType">Medium-length</option>
+            <option value="projectType">Short Film</option>
         </select>
     </label>
-    <label>Project Length Category 
-        <select name="projectlength">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Feature-length">Feature-length</option>
-            <option value="Medium-length">Medium-length</option>
-            <option value="Short Film">Short Film</option>
-        </select>
-    </label>
-    <label>Runtime (minutes) <input type="number" name="runtime" min="1" max="300"/></label>
-    <h2>Credits</h2>
-    <label>Director <input type="text" name="director"/></label>
-    <label>Writer <input type="text" name="writer"/></label>
-    <label>Cast <input type="text" name="cast"/></label>
-    <label>Producer <input type="text" name="producer"/></label>
+    <h2>Contacts</h2>
+    <label>Contact Person <input type="text" name="director"/></label>
+    <label>Contact Email <input type="text" name="writer"/></label>
 
-    <h2>Project Files</h2>
+    <h2>Festival Files</h2>
     <label>Poster <button type="" name="poster">Upload</button></label>
-    <label>Still Photos <button type="" name="stills">Upload</button></label>
-    <label>Trailer <input type="text" name="trailer"/></label>
-    <label>Preview <input type="text" name="preview"/></label>
+    <label>Logo <button type="" name="stills">Upload</button></label>
 
     <br/> 
     <button type="submit">Save Project</button>
 </form>
+{{/if}}
 </div>

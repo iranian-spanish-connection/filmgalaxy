@@ -1,0 +1,35 @@
+<section class="film-details">
+    <h2>{{title}}</h2>
+      <p>Project category: {{projectlength}} - {{projectType}}</p>
+      <p>Synopsis: {{synopsis}}</p>
+      <p>Country: {{country}}</p> 
+      <p>Language: {{language}}</p> 
+      <p>Genre: {{genre}}</p> 
+      <p>Completion Date: {{completionDate}}</p> 
+      <p>Runtime: {{runtime}}</p> 
+      <p>Director: {{director}}</p>
+      <p>Writer: {{writer}}</p>
+      <p>Cast: {{cast}}</p>
+      <p>Producer: {{producer}}</p>
+      <p>{{poster}}</p>
+      <p>{{still}}</p>
+      <p>Trailer: {{trailer}}</p>
+      <p>Preview link: {{preview}}</p>
+      <p>Submitted in Festivals: {{submittedInFestivals}}</p>
+
+    <p>
+        <strong>Description:</strong>
+        {{description}}
+    </p>
+
+    <p>
+        <a href="/profile/projects/{{this.title}}/edit">Edit</a>
+            
+        <form action="/profile/projects/{{this.title}}/remove" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </p>
+
+</section>
+
+<a href="/profile/projects">Return</a>

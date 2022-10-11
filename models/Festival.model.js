@@ -7,20 +7,24 @@ const festivalSchema = new Schema({
        type: String,
        required: true
     },
+    description: String,
     country: String,
     location: String,
-    timeZone: String,
     format: {
         type: String,
-        enum: ["Onsite", "Online", "Onsite & Online"]
     },
     eventStartDate: Date,
     eventEndDate: Date,
     submissionDeadline: Date,
+    acceptedCategories: String,
+    acceptedLength: String,
     image: String,
     entryFee: Number,
     contactEmail: String,
+    contactPerson: String,
     website: String,
+    poster: String,
+    logo: String,
     submitter: {
         type: Schema.Types.ObjectId,
         ref: "User"

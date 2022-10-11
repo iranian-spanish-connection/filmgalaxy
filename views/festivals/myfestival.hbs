@@ -5,7 +5,9 @@
 <div class="content-body">
     {{#if festivalFromDB}}
         <div>
-            <h3>{{festivalFromDB.title}}</h3>
+            <h1>{{festivalFromDB.title}}</h1>
+            <a href="/profile/myfestival/edit">Edit My Festival</a> |
+            <a href="/profile/myfestival/manage">Manage My Festival</a>
             <form action="/profile/myfestival/remove" method="POST">
                 <button type="submit">Remove My Festival</button>
             </form>
