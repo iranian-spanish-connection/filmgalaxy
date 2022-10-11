@@ -1,13 +1,12 @@
-
 body {
   color: #000000;
   padding: 50px;
   margin: auto 5rem;
   font: 18px calibri;
 }
- /* background: #a39cc0;  /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(to right, #928DAB, #431a2a);  /* Chrome 10-25, Safari 5.1-6 */
-  /*background: linear-gradient(to right, #928DAB, #7e3a53); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+/* background: #a39cc0;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to right, #928DAB, #431a2a);  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to right, #928DAB, #7e3a53); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 */
 
 .content-body {
@@ -114,3 +113,6 @@ ul {
   font-weight: bold;
 }
 
+.festival-car {
+  margin-bottom: 2rem;
+}

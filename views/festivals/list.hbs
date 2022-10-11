@@ -8,15 +8,26 @@
   </div>
 </section>
 
-<div class="content-body">
-
+<div class="container">
+  <div class="row">
     {{#each festivalsInDB}}
-        <div>
-            <img src="{{image}}" />
-            <h2>{{title}}</h2>
-            <p>{{country}}</p>
-            <p>Submission Deadline: {{submissionDeadline}}
+
+      <div class="festival-car col col-3">
+        <div class="card border-0">
+          <img src="{{image}}" class="card-img-top" alt="{{title}}" />
+          <div class="card-body p-0">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{country}}</p>
+            <p class="card-text">Submission Deadline:
+              {{formatDate "MM YYYY" submissionDeadline}}
+            </p>
+            <div class="text-center">
+              <a href="/festivals/{{_id}}" class="btn btn-primary">View details</a>
+            </div>
+          </div>
         </div>
+      </div>
     {{/each}}
 
+  </div>
 </div>
