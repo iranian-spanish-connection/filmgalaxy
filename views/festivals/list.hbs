@@ -1,11 +1,21 @@
 <section class="heads" id="search">
   <div><h2 class="headlines">Search Festivals</h2></div>
-  <div>
+
+  {{!-- <div>
     <form action="/festivals" method="POST">
       <input type="text" name="search" placeholder="Search festivals" />
       <button type="submit">Search</button>
     </form>
-  </div>
+  </div> --}}
+  
+  <form action="/festivals" method="POST">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search"/>
+      <button type="button" class="btn btn-outline-primary">search</button>
+    </div>
+  </form>
+
+
 </section>
 
 <div class="container">

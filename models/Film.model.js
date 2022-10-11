@@ -29,12 +29,12 @@ const filmSchema = new Schema({
   },
   poster: {
     type: String,
-    URL,
+    default: "/images/default-movie.jpg"
   },
   still: [
     {
       type: String,
-      URL,
+      default: "/images/default-movie.jpg"
     },
   ],
   trailer: {

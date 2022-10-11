@@ -17,12 +17,15 @@
 
   <body>
 
-    <div class="content">
+    <section id="all-page">
+    <div class="content ">
 
       <nav>
+
         {{#if userInSession}}
           <div class="title">Welcome back {{userInSession.email}}</div>
         {{/if}}
+                <img id="logo-two" src="/images/film-g-logo.png"/>
         <ul class="nav">
           <li><a class="nav-link active" href="/">Film Galaxy</a></li>
           <li><a class="nav-link" href="/festivals">Browse Festivals</a></li>
@@ -46,7 +49,7 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-
+  </section>
   </body>
 
 </html>
