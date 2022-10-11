@@ -67,8 +67,11 @@ router.post(
   "/profile/myfestival/create",
   fileUploader.array("file", 12),
   (req, res, next) => {
-    const posterPath = req.files[0].path;
-    const photosPaths = req.files.slice(1).map((file) => file.path);
+    let posterPath, photosPaths;
+    if (req.files && req.files.length > 0) {
+      posterPath = req.files[0].path;
+      photosPaths = req.files.slice(1).map((file) => file.path);
+    }
 
     const myFestival = {
       title: req.body.title,
