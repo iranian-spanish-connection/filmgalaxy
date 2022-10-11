@@ -44,11 +44,27 @@ router.get("/profile/add-my-festival", (req, res, next) => {
 
 
 
-router.post("/profile/myfestival", (req, res, next) => {
+router.post("/profile/myfestival/create", (req, res, next) => {
   const myFestival = {
     title: req.body.title,
+    description: req.body.description,
+    country: req.body.country,
+    location: req.body.location,
+    format: req.body.format,
+    eventStartDate: req.body.eventStartDate,
+    eventEndDate: req.body.eventEndDate,
+    submissionDeadline: req.body.submissionDeadline,
+    entryFee: req.body.entryFee,
+    acceptedCategories: req.body.acceptedCategories,
+    acceptedLength: req.body.acceptedLength,
+    contactPerson: req.body.contactPerson,
+    contactEmail: req.body.contactEmail,
+    website: req.body.website,
+    poster: req.body.poster,
+    logo: req.body.logo,
     submitter: req.session.user,
-  };
+    submittedFilms: req.body.submittedFilms,
+  }
   Festival.create(myFestival)
     .then(() => {
       res.redirect("/profile/myfestival");
@@ -77,8 +93,24 @@ router.get("/profile/myfestival/edit", (req, res, next) => {
 
 router.post("/profile/myfestival/edit", (req, res, next) => {
   const updateMyFestival = {
-      title: req.body.title,
-      country: req.body.country,
+    title: req.body.title,
+    description: req.body.description,
+    country: req.body.country,
+    location: req.body.location,
+    format: req.body.format,
+    eventStartDate: req.body.eventStartDate,
+    eventEndDate: req.body.eventEndDate,
+    submissionDeadline: req.body.submissionDeadline,
+    entryFee: req.body.entryFee,
+    acceptedCategories: req.body.acceptedCategories,
+    acceptedLength: req.body.acceptedLength,
+    contactPerson: req.body.contactPerson,
+    contactEmail: req.body.contactEmail,
+    website: req.body.website,
+    poster: req.body.poster,
+    logo: req.body.logo,
+    submitter: req.session.user,
+    submittedFilms: req.body.submittedFilms,
   }
   Festival.findOneAndUpdate({ submitter: req.session.user._id }, updateMyFestival)
   .then((result) => {

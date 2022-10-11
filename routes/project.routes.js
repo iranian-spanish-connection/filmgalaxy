@@ -23,7 +23,7 @@ router.get("/profile/projects/create", isLoggedIn, (req, res) => {
 
 //ADD A PROJECT
 
-router.post("/profile/create", (req, res) => {
+router.post("/profile/projects/create", (req, res) => {
   const newProject = {
       title: req.body.title,
       country: req.body.country,
