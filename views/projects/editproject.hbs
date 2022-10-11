@@ -4,7 +4,7 @@
 
 <div class="content-body">
 
-<form action="/profile/projects/{{this.title}}/edit" method="POST">
+<form action="/profile/projects/{{this.title}}/edit" method="POST" enctype="multipart/form-data">
 
     <h2>Project Information</h2>
     <label>Project Title (English) <input type="text" name="title" value="{{this.title}}"/></label>
@@ -375,8 +375,26 @@
     <label>Producer <input type="text" name="producer" value="{{this.producer}}"/></label>
 
     <h2>Project Files</h2>
-    <label>Poster <button type="" name="poster">Upload</button></label>
-    <label>Still Photos <button type="" name="stills">Upload</button></label>
+    {{! FILES }}
+    <label for="poster" class="form-label">Poster
+    <input
+        class="form-control"
+        type="file"
+        id="poster"
+        name="poster"
+    /></label>
+    <input type="text" name="existingPoster" hidden value="{{poster}}">
+
+    <label for="photos" class="form-label">Still Photos
+    <input
+        class="form-control"
+        type="file"
+        id="photos"
+        name="photos"
+        multiple
+    /></label>
+    <input type="text" name="existingPhotos" hidden value="{{photos}}">
+    {{! FILES }}
     <label>Trailer <input type="text" name="trailer"/></label>
     <label>Preview <input type="text" name="preview"/></label>
 
