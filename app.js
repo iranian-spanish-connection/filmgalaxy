@@ -15,6 +15,7 @@ const hbs = require("hbs");
 
 // Handlebars helper
 const H = require("just-handlebars-helpers");
+const isLoggedIn = require("./middleware/isLoggedIn");
 
 // Register just-handlebars-helpers with handlebars
 H.registerHelpers(hbs);
@@ -38,7 +39,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/auth.routes"));
 app.use("/", require("./routes/festival.routes"));
-app.use("/", require("./routes/project.routes"));
+app.use("/", isLoggedIn, require("./routes/project.routes"));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

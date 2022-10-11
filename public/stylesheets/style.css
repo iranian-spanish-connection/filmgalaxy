@@ -8,10 +8,12 @@ body {
 /*background: -webkit-linear-gradient(to right, #928DAB, #431a2a);  /* Chrome 10-25, Safari 5.1-6 */
 /*background: linear-gradient(to right, #928DAB, #7e3a53); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 */
-
+.prj{
+  margin-bottom: 2%;
+}
 .content-body {
-  background-color: rgb(208, 206, 206);
-  width: 75%;
+  background-color: rgb(255, 255, 255);
+  width: 65%;
   height: auto;
   min-height: 100%;
 }
@@ -35,20 +37,24 @@ body {
   align-items: center;
 }
 
-#add-festival {
+/* #add-festival {
   padding: 20px;
-  background-color: rgb(110, 173, 255);
   border: none;
   border-radius: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+} */
+.add-festival {
+  padding: 5%;
+  text-align: center;
 }
 
-#add-festival > a {
+
+/* #add-festival > a {
   color: white;
-}
+} */
 
 a {
   text-decoration: none;
@@ -68,8 +74,12 @@ ul {
 
 .heads {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 2%;
+
+  
 }
 
 #festival-head {
@@ -93,23 +103,26 @@ ul {
 }
 
 .nav-link {
-  color: #000000;
+  color: #000000 !important;
   font-size: 1rem;
   padding: 0 1rem;
 }
 
 .button {
-  display: flex;
-  justify-content: flex-end;
+  
   margin: 20 20px 20px auto;
 }
 
-.btn {
+
+.btn{
+  margin: 2px;
+}
+/* .btn {
   color: #faf8f8;
   background-color: rgb(53, 118, 193);
   padding: 10px;
   border-radius: 10px;
-}
+} */
 
 .nav-link.active {
   color: purple;
