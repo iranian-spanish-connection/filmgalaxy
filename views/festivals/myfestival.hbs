@@ -1,6 +1,7 @@
 <section class="heads" id="festival-head">
   <div><h2 class="headlines">My Festival</h2></div>
 </section>
+<div class="d-flex justify-content-center">
 
 <div class="content-body">
     {{#if festivalFromDB}}
@@ -32,6 +33,9 @@
             <p><strong>Website</strong>  {{festivalFromDB.website}}</p>
         </div>
     {{else}}
-            <div id="add-festival"><a href ="/profile/add-my-festival">Add My Festival</a></div>
+
+            <h3 class="add-festival">You have no Festival added. Use the link below to create your Festival.</h3>
+            <div class="add-festival d-grid gap-2 col-6 mx-auto"><a class="form-control btn btn-primary" href ="/profile/add-my-festival">Add My Festival</a></div>
     {{/if}}
+</div>
 </div>

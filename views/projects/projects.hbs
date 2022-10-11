@@ -1,12 +1,16 @@
+<div><h2 class="headlines">PROJECTS</h2></div>
+
 <section class="heads">
-  <div><h2 class="headlines">Projects</h2></div>
-  <div class="button">
-    <a class="btn" href="/profile/projects/create">Add a Project</a>
+  <div class="prj">
+    <a class="btn btn-outline-dark" href="/profile/projects/create">Add a Project</a>
   </div>
-</section>
+
+
+<div class="d-flex justify-content-center">
+
 <div class="content-body">
     
-    {{#each projectsInDB}}
+    {{!-- {{#each projectsInDB}}
         <div>
             <img src="{{image}}" />
             <h2>{{title}}</h2>
@@ -20,6 +24,35 @@
                 <button type="submit">Delete</button>
             </form>
         </div>
-    {{/each}}
+    {{/each}} --}}
+
+
+  {{#each projectsInDB}}
+      <div class="card mb-4" style="max-width: 1100px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{poster}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <p class="card-text">{{synopsis}}</p>
+              <p class="card-text">
+              <small class="text-muted">
+              <p>Director: {{director}}</p>
+              <p>Runtime: {{runtime}} minutes</p>
+              <a class="form-control btn btn-outline-primary btn-sm" href="/profile/projects/{{this.title}}">View</a>
+              <a class="form-control btn btn-outline-primary btn-sm" href="/profile/projects/{{this.title}}/edit">Edit</a>
+              <form action="/profile/projects/{{this.title}}/remove" method="POST">
+                  <button class="form-control btn btn-outline-primary btn-sm" type="submit">Delete</button>
+              </form>
+              </small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+  {{/each}}
 
 </div>
+</div>
+</section>

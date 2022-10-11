@@ -1,6 +1,8 @@
 <section class="heads">
-<div><h2 class="headlines">Add My Festival</h2></div>
+    <div><h2 class="headlines">Add My Festival</h2></div>
 </section>
+
+<div class="d-flex justify-content-center">
 
 <div class="content-body">
 
@@ -8,13 +10,15 @@
 
 
     <h2>Festival Information</h2>
-    <label>Festival Title (English) <input type="text" name="title"/></label>
-    <label>Brief Description (English) <textarea type="text" name="description" rows="4" cols="50"/></textarea>
-
+    <label>Festival Title <input class="form-control" placeholder="Festival Title" aria-label="default input example" type="text" name="title"/></label>
+    <div class="form-outline w-100 mb-4" >
+        <label for="textAreaExample6" class="form-label">Brief Description</label>
+        <textarea placeholder="Description in English" class="form-control" id="textAreaExample6" rows="3" name="description"></textarea>
+    </div>
 
     <h2>Specifications</h2>
     <label>Country
-            <select id="country" name="country" class="form-control">
+            <select id="country" name="country" class="form-select" aria-label="Default select example">
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -257,47 +261,86 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
     </label>
-    <label>Location <input type="text" name="location"/></label>
+    <label>Location <input class="form-control" aria-label="default input example" type="text" name="location"/></label>
     <label>Format
-        <select name="format">
+        <select name="format" class="form-control">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Onsite">Onsite</option>
             <option value="Online">Online</option>
             <option value="Hybrid">Hybrid (Online & Onsite)</option>
         </select>
     </label>
-    <label>Event Start Date <input type="date" name="eventStartDate"/></label>
-    <label>Event End Date <input type="date" name="eventEndDate"/></label>
-    <label>Submission Deadline <input type="date" name="submissionDeadline"/></label>
-    <label>Entry fee <input type="number" min="0" name="entryFee"/></label>
-    <label>Projects to Submit
-        <select multiple name="acceptedCategories">
-            <option value="Fiction">Fiction</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Experimental">Experimental</option>
-            <option value="Animation">Animation</option>
-        </select>
-    </label>
-    <label>Accepted Project Length 
-        <select multiple name="acceptedLength">
-            <option value="Feature-length">Feature-length</option>
-            <option value="Medium-length">Medium-length</option>
-            <option value="Short Film">Short Film</option>
-        </select>
-    </label>
+    <label>Event Start Date <input class="form-control" aria-label="default input example" type="date" name="eventStartDate"/></label>
+    <label>Event End Date <input class="form-control" aria-label="default input example" type="date" name="eventEndDate"/></label>
+    <label>Submission Deadline <input class="form-control" aria-label="default input example" type="date" name="submissionDeadline"/></label>
+    <label>Entry fee <input class="form-control" aria-label="default input example" type="number" min="0" name="entryFee"/></label>
+    <section name="acceptedCategories">
+        <label>Projects to Submit
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="acceptedCategories" value="Fiction">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Fiction
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="acceptedCategories" value="Documentary">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Documentary
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="acceptedCategories" value="Experimental">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Experimental
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="acceptedCategories" value="Animation">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Animation
+                </label>
+            </div>
+        </label>
+    </section>
+ 
+    <section multiple name="acceptedLength">
+        <label>Accepted Project Length
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="acceptedLength" value="Feature-length">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Feature-length
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="acceptedLength" value="Medium-length">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Medium-length
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="acceptedLength" value="Short Film">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Short Film
+                </label>
+            </div>
+        </label>
+    </section>
 
 
     <h2>Contacts</h2>
-    <label>Contact Person <input type="text" name="contactPerson"/></label>
-    <label>Contact Email <input type="email" name="contactEmail"/></label>
-    <label>Website<input type="text" name="website"/></label>
+    <label>Contact Person <input class="form-control" aria-label="default input example" type="text" name="contactPerson"/></label>
+    <label>Contact Email <input class="form-control" aria-label="default input example" type="email" name="contactEmail"/></label>
+    <label>Website<input class="form-control" aria-label="default input example" type="text" name="website"/></label>
 
 
     <h2>Festival Files</h2>
-    <label>Poster <button type="" name="poster">Upload</button></label>
-    <label>Logo <button type="" name="logo">Upload</button></label>
+    <label>Poster <button class="form-control btn btn-outline-primary" type="" name="poster">Upload</button></label>
+    <label>Logo <button class="form-control btn btn-outline-primary" type="" name="logo">Upload</button></label>
 
     <br/> 
-    <button type="submit">Save My Festival</button>
+    <button class="form-control btn btn-primary" type="submit">Save My Festival</button>
 </form>
+</div>
 </div>
