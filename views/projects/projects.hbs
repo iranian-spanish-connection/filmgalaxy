@@ -26,9 +26,11 @@
         </div>
     {{/each}} --}}
 
-
+<div class="container">
+  <div class="row">
   {{#each projectsInDB}}
-      <div class="card mb-4" style="max-width: 1100px;">
+  <div class="col col-6">
+      <div class="card mb-4">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="{{poster}}" class="img-fluid rounded-start" alt="...">
@@ -36,11 +38,10 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{title}}</h5>
-              <p class="card-text">{{synopsis}}</p>
               <p class="card-text">
               <small class="text-muted">
               <p>Director: {{director}}</p>
-              <p>Runtime: {{runtime}} minutes</p>
+              <p>Runtime: {{runtime}} minutes</p> 
               <a class="form-control btn btn-outline-primary btn-sm" href="/profile/projects/{{this.title}}">View</a>
               <a class="form-control btn btn-outline-primary btn-sm" href="/profile/projects/{{this.title}}/edit">Edit</a>
               <form action="/profile/projects/{{this.title}}/remove" method="POST">
@@ -51,7 +52,10 @@
           </div>
         </div>
       </div>
+      </div>
   {{/each}}
+</div>
+</div>
 
 </div>
 </div>

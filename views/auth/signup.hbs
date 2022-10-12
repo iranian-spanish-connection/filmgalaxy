@@ -1,6 +1,12 @@
 <h3>Sign Up</h3>
 
-<form action="/signup" method="POST">
+ <div>
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}
+</div>
+
+{{!-- <form action="/signup" method="POST">
    <label> Email
       <input type="email" name="email">
    </label>
@@ -13,4 +19,33 @@
 
 {{#if errorMessage}}
    {{errorMessage}}
-{{/if}}
+{{/if}} --}}
+
+<div class="d-flex justify-content-center">
+
+
+<form action="/signup" method="POST">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" name="email" id="form2Example1" class="form-control" />
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" name="password" id="form2Example2" class="form-control" />
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="password" name="password" id="form2Example2" class="form-control" />
+    <label class="form-label" for="form2Example2">Confirm Password</label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+ 
+</form>
+ </div>
+
+
