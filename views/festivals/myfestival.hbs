@@ -1,16 +1,44 @@
-{{!-- <section class="heads" id="festival-head">
+{{! <section class="heads" id="festival-head">
   <div><h2 class="headlines">My Festival</h2></div>
-</section> --}}
+</section> }}
 
+{{#if festivalFromDB}}
 
-    {{#if festivalFromDB}}
-
-    <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
 
     <div class="content-body">
 
-    <div class="card mb-4 border-0" style="max-width: 1100px;" >
-            <div class="row g-0">
+      <div class="card mb-4 border-0" style="max-width: 1100px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{festivalFromDB.logo}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+            <img
+              src="{{festivalFromDB.poster}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+            <br />
+            <br />
+            <br />
+            <a
+              class="form-control btn btn-outline-secondary btn-sm"
+              href="/profile/myfestival/edit"
+            >Edit My Festival</a>
+            <a
+              class="form-control btn btn-outline-secondary btn-sm"
+              href="/profile/myfestival/manage"
+            >Manage My Festival</a>
+            <form action="/profile/myfestival/remove" method="POST">
+              <button
+                class="form-control btn btn-outline-secondary btn-sm"
+                type="submit"
+              >Remove My Festival</button>
+            </form>
+          </div>
 
                 <div class="col-md-4">
                         <img src="{{festivalFromDB.logo}}" class="img-fluid rounded-start" alt="..." />
@@ -44,12 +72,26 @@
                     </div>
                 </div>
 
+              <h5 class="card-title">Contacts</h5>
+              <p class="card-text"><strong>Contact Person</strong>
+                {{festivalFromDB.contactPerson}}</p>
+              <p class="card-text"><strong>Contact Email</strong>
+                {{festivalFromDB.contactEmail}}</p>
+              <p class="card-text"><strong>Website</strong>
+                {{festivalFromDB.website}}</p>
             </div>
-        </div>
-    </div>
-</div>
-                {{else}}
+          </div>
 
-                        <h3 class="add-festival">You have no Festival added. Use the link below to create your Festival.</h3>
-                        <div class="add-festival d-grid gap-2 col-6 mx-auto"><a class="form-control btn btn-primary" href ="/profile/add-my-festival">Add My Festival</a></div>
-                {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{else}}
+
+  <h3 class="add-festival">You have no Festival added. Use the link below to
+    create your Festival.</h3>
+  <div class="add-festival d-grid gap-2 col-6 mx-auto"><a
+      class="form-control btn btn-primary"
+      href="/profile/add-my-festival"
+    >Add My Festival</a></div>
+{{/if}}
