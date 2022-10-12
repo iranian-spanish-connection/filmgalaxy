@@ -192,6 +192,17 @@ ul {
   font-weight: bold;
 }
 
-.festival-car {
+/* .festival-car {
   margin-bottom: 2rem;
+} */
+
+.fest {
+  margin: 1rem;
+}
+.fest > img {
+  width: 15vw;
+  height: 10vw;
+  margin: 10% 0;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
 }
