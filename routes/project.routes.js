@@ -2,23 +2,16 @@ const router = require("express").Router();
 const Film = require("../models/Film.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
-const countryList = require("../utils/countryList");
-const languageList = require("../utils/languageList");
+const countryList = require("../utils/lists/countries");
+const languageList = require("../utils/lists/languages");
 const {
   genreList,
   projectTypeList,
   lengthCategoryList,
-} = require("../utils/projecSpecsLists");
+} = require("../utils/lists/project-specs");
+const filterList = require("../utils/lists/filter");
 
 //PROJECTS PAGE
-
-const filterList = (list, excluded) => {
-  if (Array.isArray(excluded)) {
-    return list.filter((elem) => !excluded.includes(elem));
-  } else {
-    return list.filter((elem) => elem !== excluded);
-  }
-};
 
 router.get("/profile/projects", (req, res) => {
   Film.find({ submitter: req.session.user._id })

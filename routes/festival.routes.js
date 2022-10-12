@@ -1,6 +1,13 @@
 const router = require("express").Router();
 const Festival = require("../models/Festival.model");
 const fileUploader = require("../config/cloudinary.config");
+const countryList = require("../utils/lists/countries");
+const {
+  projectTypeList,
+  lengthCategoryList,
+} = require("../utils/lists/project-specs");
+const formatList = require("../utils/lists/festival-specs");
+const filterList = require("../utils/lists/filter");
 
 //BROWSE FESTIVALS PAGE
 
@@ -60,7 +67,12 @@ router.get("/profile/myfestival", (req, res) => {
 //ADD MY FESTIVAL
 
 router.get("/profile/add-my-festival", (req, res, next) => {
-  res.render("festivals/createfestival");
+  res.render("festivals/createfestival", {
+    countryList,
+    projectTypeList,
+    lengthCategoryList,
+    formatList,
+  });
 });
 
 const fields = [
@@ -110,7 +122,19 @@ router.post(
 router.get("/profile/myfestival/edit", (req, res, next) => {
   Festival.findOne({ submitter: req.session.user._id })
     .then((myFestival) => {
-      res.render("festivals/editfestival", { myFestival });
+      res.render("festivals/editfestival", {
+        myFestival,
+        countryList: filterList(countryList, myFestival.country),
+        projectTypeList: filterList(
+          projectTypeList,
+          myFestival.acceptedCategories
+        ),
+        lengthCategoryList: filterList(
+          lengthCategoryList,
+          myFestival.acceptedLength
+        ),
+        formatList: filterList(formatList, myFestival.format),
+      });
     })
     .catch((err) => {
       console.log("Error editing my festival", err);
