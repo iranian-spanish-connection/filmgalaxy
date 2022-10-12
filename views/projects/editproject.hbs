@@ -2,16 +2,41 @@
 <div><h2 class="headlines">Edit My project</h2></div>
 </section>
 
+
+<div class="d-flex justify-content-center">
+
 <div class="content-body">
 
 <form action="/profile/projects/{{this.title}}/edit" method="POST" enctype="multipart/form-data">
 
     <h2>Project Information</h2>
-    <label>Project Title (English) <input type="text" name="title" value="{{this.title}}"/></label>
-    <label>Brief Synopsis (English) <textarea type="text" name="synopsis" rows="4" cols="50"/>{{synopsis}}</textarea>
+    <label>Project Title 
+        <input 
+          class="form-control"
+          type="text"
+          placeholder="Title in English"
+          aria-label="default input example"
+          type="text"
+          name="title" value="{{this.title}}"/>
+    </label>
+
+    <div class="form-outline w-100 mb-4">
+
+    <label for="textAreaExample6" class="form-label">Brief Synopsis </label>
+    <textarea 
+          placeholder="Synopsis in English"
+          class="form-control"
+          id="textAreaExample6"
+          rows="3"
+          name="synopsis"/>
+    {{synopsis}}
+    </textarea>
+
+    </div>
+
     <h2>Specifications</h2>
     <label>Country of Origin 
-            <select id="country" name="country" class="form-control" value="{{country}}">
+            <select id="country" name="country" class="form-select" aria-label="Default select example" value="{{country}}">
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -255,7 +280,8 @@
             </select>
     </label>
     <label>Original Language 
-        <select data-placeholder="Choose a Language..." name="language" value="{{this.language}}">
+        <select data-placeholder="Choose a Language..." name="language" class="form-select"
+          aria-label="Default select example" value="{{this.language}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Afrikaans">Afrikaans</option>
             <option value="Albanian">Albanian</option>
@@ -331,9 +357,11 @@
             <option value="Xhosa">Xhosa</option>
         </select>
     </label>
-    <label>Completion Date <input type="date" name="completionDate" value={{this.completionDate}}/></label>
+    <label>Completion Date <input class="form-control"
+          aria-label="default input example" type="date" name="completionDate" value={{this.completionDate}}/></label>
     <label>Genres 
-        <select name="genre" value="{{this.genre}}">
+        <select name="genre" class="form-select"
+          aria-label="Default select example" value="{{this.genre}}">
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Drama">Drama</option>
             <option value="Comedy">Comedy</option>
@@ -350,29 +378,125 @@
             <option value="History">History</option>
         </select>    
     </label>
-    <label>Project Type 
-        <select name="projectType" value="{{this.projectType}}">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Experimental">Experimental</option>
-            <option value="Animation">Animation</option>
-        </select>
+
+    <section>
+        <label><strong>Project Type</strong>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectType"
+              value="{{this.projectType}}"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Fiction
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectType"
+              value="Documentary"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Documentary
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectType"
+              value="Experimental"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Experimental
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectType"
+              value="Animation"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Animation
+            </label>
+          </div>
+        </label>
+    </section>
+ 
+               
+    <section name="projectlength" value="{{this.projectlength}}">
+        <label><strong>Project Length Category</strong>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectlength"
+              value="Feature-length"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Feature-length
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectlength"
+              value="Medium-length"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Medium-length
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              name="projectlength"
+              value="Short Film"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Short Film
+            </label>
+          </div>
+
+        </label>
+      </section>
+
+
     </label>
-    <label>Project Length Category 
-        <select name="projectlength" value="{{this.projectlength}}">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="Feature-length">Feature-length</option>
-            <option value="Medium-length">Medium-length</option>
-            <option value="Short Film">Short Film</option>
-        </select>
-    </label>
-    <label>Runtime (minutes) <input type="number" name="runtime" min="1" max="300" value="{{this.runtime}}"/></label>
+    <label>Runtime <input class="form-control"
+          type="number"
+          name="runtime"
+          min="1"
+          max="300" value="{{this.runtime}}"/>minutes</label>
     <h2>Credits</h2>
-    <label>Director <input type="text" name="director" value="{{this.director}}"/></label>
-    <label>Writer <input type="text" name="writer" value="{{this.writer}}"/></label>
-    <label>Cast <input type="text" name="cast" value="{{this.cast}}"/></label>
-    <label>Producer <input type="text" name="producer" value="{{this.producer}}"/></label>
+    <label>Director <input class="form-control" type="text" name="director" value="{{this.director}}"/></label>
+    <label>Writer <input class="form-control" type="text" name="writer" value="{{this.writer}}"/></label>
+    <label>Cast <input class="form-control" type="text" name="cast" value="{{this.cast}}"/></label>
+    <label>Producer <input class="form-control" type="text" name="producer" value="{{this.producer}}"/></label>
 
     <h2>Project Files</h2>
     {{! FILES }}
@@ -395,10 +519,11 @@
     /></label>
     <input type="text" name="existingPhotos" hidden value="{{photos}}">
     {{! FILES }}
-    <label>Trailer <input type="text" name="trailer"/></label>
-    <label>Preview <input type="text" name="preview"/></label>
+    <label>Trailer <input class="form-control" type="text" name="trailer"/></label>
+    <label>Preview <input class="form-control" type="text" name="preview"/></label>
 
     <br/> 
-    <button type="submit">Save Changes</button>
+    <button class="form-control btn btn-primary" type="submit">Save Changes</button>
 </form>
+</div>
 </div>

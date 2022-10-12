@@ -1,41 +1,55 @@
-<section class="heads" id="festival-head">
+{{!-- <section class="heads" id="festival-head">
   <div><h2 class="headlines">My Festival</h2></div>
-</section>
-<div class="d-flex justify-content-center">
+</section> --}}
 
-<div class="content-body">
+
     {{#if festivalFromDB}}
-        <div>
-            <h1>{{festivalFromDB.title}}</h1>
-            <p>Poster {{festivalFromDB.poster}}</p>
-            <p>Logo {{festivalFromDB.logo}}</p>
 
-            <a href="/profile/myfestival/edit">Edit My Festival</a> |
-            <a href="/profile/myfestival/manage">Manage My Festival</a>
-            <form action="/profile/myfestival/remove" method="POST">
-                <button type="submit">Remove My Festival</button>
-            </form>
-            <h3>Festival Information</h3>
-            <p><strong>Brief Description</strong>  {{festivalFromDB.description}}</p>
-            <p><strong>Country</strong> {{festivalFromDB.country}}</p>
-            <p><strong>Location</strong>  {{festivalFromDB.location}}</p>
-            <p><strong>Format</strong>  {{festivalFromDB.format}}</p>
-            <p><strong>Event Start Date</strong>  {{festivalFromDB.eventStartDate}}</p>
-            <p><strong>Event End Date</strong>  {{festivalFromDB.eventEndDate}}</p>
-            <p><strong>Submission Deadline</strong>  {{festivalFromDB.submissionDeadline}}</p>
-            <p><strong>Entry fee</strong>  {{festivalFromDB.entryFee}}</p>
-            <p><strong>Projects to Submit</strong>  {{festivalFromDB.acceptedCategories}}</p>
-            <p><strong>Accepted Project Length</strong>  {{festivalFromDB.acceptedLength}}</p>
-            
-            <h3>Contacts</h3>
-            <p><strong>Contact Person</strong>  {{festivalFromDB.contactPerson}}</p>
-            <p><strong>Contact Email</strong>  {{festivalFromDB.contactEmail}}</p>
-            <p><strong>Website</strong>  {{festivalFromDB.website}}</p>
+    <div class="d-flex justify-content-center">
+
+    <div class="content-body">
+
+    <div class="card mb-4 border-0" style="max-width: 1100px;" >
+            <div class="row g-0">
+
+                <div class="col-md-4">
+                        <img src="{{festivalFromDB.logo}}" class="img-fluid rounded-start" alt="..." />
+                        <img src="{{festivalFromDB.poster}}" class="img-fluid rounded-start" alt="..."> <br/>  <br/>  <br/>
+                        <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/myfestival/edit">Edit My Festival</a>
+                        <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/myfestival/manage">Manage My Festival</a>
+                        <form action="/profile/myfestival/remove" method="POST">
+                            <button class="form-control btn btn-outline-secondary btn-sm" type="submit">Remove My Festival</button>
+                        </form>
+                <div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{festivalFromDB.title}}</h5>
+                        <h5 class="card-title">Festival Information</h5>
+                        <p class="card-text"><strong>Brief Description</strong>  {{festivalFromDB.description}}</p>
+                        <p class="card-text"><strong>Country</strong> {{festivalFromDB.country}}</p>
+                        <p class="card-text"><strong>Location</strong>  {{festivalFromDB.location}}</p>
+                        <p class="card-text"><strong>Format</strong>  {{festivalFromDB.format}}</p>
+                        <p class="card-text"><strong>Event Start Date</strong>  {{festivalFromDB.eventStartDate}}</p>
+                        <p class="card-text"><strong>Event End Date</strong>  {{festivalFromDB.eventEndDate}}</p>
+                        <p class="card-text"><strong>Submission Deadline</strong>  {{festivalFromDB.submissionDeadline}}</p>
+                        <p class="card-text"><strong>Entry fee</strong>  {{festivalFromDB.entryFee}}</p>
+                        <p class="card-text"><strong>Projects to Submit</strong>  {{festivalFromDB.acceptedCategories}}</p>
+                        <p class="card-text"><strong>Accepted Project Length</strong>  {{festivalFromDB.acceptedLength}}</p>
+                        
+                        <h5 class="card-title">Contacts</h5>
+                        <p class="card-text"><strong>Contact Person</strong>  {{festivalFromDB.contactPerson}}</p>
+                        <p class="card-text"><strong>Contact Email</strong>  {{festivalFromDB.contactEmail}}</p>
+                        <p class="card-text"><strong>Website</strong>  {{festivalFromDB.website}}</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    {{else}}
+    </div>
+</div>
+                {{else}}
 
-            <h3 class="add-festival">You have no Festival added. Use the link below to create your Festival.</h3>
-            <div class="add-festival d-grid gap-2 col-6 mx-auto"><a class="form-control btn btn-primary" href ="/profile/add-my-festival">Add My Festival</a></div>
-    {{/if}}
-</div>
-</div>
+                        <h3 class="add-festival">You have no Festival added. Use the link below to create your Festival.</h3>
+                        <div class="add-festival d-grid gap-2 col-6 mx-auto"><a class="form-control btn btn-primary" href ="/profile/add-my-festival">Add My Festival</a></div>
+                {{/if}}
