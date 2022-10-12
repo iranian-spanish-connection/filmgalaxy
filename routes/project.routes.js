@@ -2,8 +2,23 @@ const router = require("express").Router();
 const Film = require("../models/Film.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
+const countryList = require("../utils/countryList");
+const languageList = require("../utils/languageList");
+const {
+  genreList,
+  projectTypeList,
+  lengthCategoryList,
+} = require("../utils/projecSpecsLists");
 
 //PROJECTS PAGE
+
+const filterList = (list, excluded) => {
+  if (Array.isArray(excluded)) {
+    return list.filter((elem) => !excluded.includes(elem));
+  } else {
+    return list.filter((elem) => elem !== excluded);
+  }
+};
 
 router.get("/profile/projects", (req, res) => {
   Film.find({ submitter: req.session.user._id })
@@ -16,7 +31,13 @@ router.get("/profile/projects", (req, res) => {
 });
 
 router.get("/profile/projects/create", isLoggedIn, (req, res) => {
-  res.render("projects/create");
+  res.render("projects/create", {
+    countryList,
+    languageList,
+    genreList,
+    projectTypeList,
+    lengthCategoryList,
+  });
 });
 
 //ADD A PROJECT
@@ -82,8 +103,17 @@ router.get("/profile/projects/:title", (req, res, next) => {
 router.get("/profile/projects/:title/edit", (req, res, next) => {
   Film.findOne({ title: req.params.title })
     .then((filmDetails) => {
-      console.log("filmDetails>>>", filmDetails);
-      res.render("projects/editproject", filmDetails);
+      res.render("projects/editproject", {
+        filmDetails,
+        countryList: filterList(countryList, filmDetails.country),
+        languageList: filterList(languageList, filmDetails.language),
+        genreList: filterList(genreList, filmDetails.genre),
+        projectTypeList: filterList(projectTypeList, filmDetails.projectType),
+        lengthCategoryList: filterList(
+          lengthCategoryList,
+          filmDetails.projectlength
+        ),
+      });
     })
     .catch((err) => {
       console.log("error getting project details from DB", err);
