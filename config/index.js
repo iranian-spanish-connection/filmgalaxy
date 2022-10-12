@@ -50,6 +50,9 @@ module.exports = (app) => {
     favicon(path.join(__dirname, "..", "public", "images", "favicon.ico"))
   );
 
+  // required for the app when deployed to Heroku (in production)
+  app.set("trust proxy", 1);
+
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
@@ -59,7 +62,7 @@ module.exports = (app) => {
       cookie: {
         sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         secure: process.env.NODE_ENV === "production",
-        httpOnly: true,
+        httpOnly: process.env.NODE_ENV === "production",
         maxAge: 1000 * 60 * 60 * 24, // 24h
       },
       store: MongoStore.create({
