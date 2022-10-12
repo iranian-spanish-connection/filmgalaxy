@@ -36,42 +36,60 @@
 
 <div class="d-flex justify-content-center">
 
-<div class="content-body">
+  <div class="content-body">
 
-<div class="card mb-4 border-0" style="max-width: 1100px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{{poster}}" class="img-fluid rounded-start" alt="..."> <br/>  <br/>  <br/>
-            <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/projects">Return</a> <br/>
-              <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/projects/{{this.title}}/edit">Edit</a> <br/>
-              <form action="/profile/projects/{{this.title}}/remove" method="POST">
-                  <button class="form-control btn btn-outline-secondary btn-sm" type="submit">Delete</button>
-              </form>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{title}}</h5>
-              <p class="card-text">{{synopsis}}</p>
-                <p class="card-text">Project category: {{projectlength}} - {{projectType}}</p>
-                <p class="card-text">Director: {{director}}</p>
-                <p class="card-text">Runtime: {{runtime}} minutes</p>
-                <p class="card-text">Country: {{country}}</p> 
-                <p class="card-text">Language: {{language}}</p> 
-                <p class="card-text">Genre: {{genre}}</p> 
-                <p class="card-text">Completion Date: {{completionDate}}</p> 
-                <p class="card-text">Runtime: {{runtime}}</p> 
-                <p class="card-text">Director: {{director}}</p>
-                <p class="card-text">Writer: {{writer}}</p>
-                <p class="card-text">Cast: {{cast}}</p>
-                <p class="card-text">Producer: {{producer}}</p>
-                <p class="card-text">Trailer: {{trailer}}</p>
-                <p class="card-text">Preview link: {{preview}}</p>
-                <p class="card-text">Submitted in Festivals: {{submittedInFestivals}}</p>
-              
-            </div>
+    <div class="card mb-4 border-0" style="max-width: 1100px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{poster}}" class="img-fluid rounded-start" alt="..." />
+          <br />
+          <br />
+          <br />
+          <a
+            class="form-control btn btn-outline-secondary btn-sm"
+            href="/profile/projects"
+          >Return</a>
+          <br />
+          <a
+            class="form-control btn btn-outline-secondary btn-sm"
+            href="/profile/projects/{{this.title}}/edit"
+          >Edit</a>
+          <br />
+          <form action="/profile/projects/{{this.title}}/remove" method="POST">
+            <button
+              class="form-control btn btn-outline-secondary btn-sm"
+              type="submit"
+            >Delete</button>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{synopsis}}</p>
+            <p class="card-text">Project category:
+              {{projectlength}}
+              -
+              {{projectType}}</p>
+            <p class="card-text">Director: {{director}}</p>
+            <p class="card-text">Runtime: {{runtime}} minutes</p>
+            <p class="card-text">Country: {{country}}</p>
+            <p class="card-text">Language: {{language}}</p>
+            <p class="card-text">Genre: {{genre}}</p>
+            <p class="card-text">Completion Date: {{completionDate}}</p>
+            <p class="card-text">Runtime: {{runtime}}</p>
+            <p class="card-text">Director: {{director}}</p>
+            <p class="card-text">Writer: {{writer}}</p>
+            <p class="card-text">Cast: {{cast}}</p>
+            <p class="card-text">Producer: {{producer}}</p>
+            <p class="card-text">Trailer: {{trailer}}</p>
+            <p class="card-text">Preview link: {{preview}}</p>
+            <p class="card-text">Submitted in Festivals:
+              {{submittedInFestivals}}</p>
+
           </div>
         </div>
       </div>
-
     </div>
+
+  </div>
 </div>
