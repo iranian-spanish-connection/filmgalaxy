@@ -24,13 +24,14 @@
 
 </section>
 
-<div class="container">
+{{!-- <div class="container">
   <div class="row">
+
     {{#each festivalsInDB}}
 
       <div class="festival-car col col-3">
-        <div class="card border-0">
-          <img src="{{image}}" class="card-img-top" alt="{{title}}" />
+        <div class="card">
+          <img src="{{poster}}" class="card-img-top" alt="{{title}}" />
           <div class="card-body p-0">
             <h5 class="card-title">{{title}}</h5>
             <p class="card-text">{{country}}</p>
@@ -45,5 +46,25 @@
       </div>
     {{/each}}
 
+  </div>
+</div> --}}
+
+<div class="container text-center">
+  <div class="row align-items-end">
+    {{#each festivalsInDB}}
+
+      <div class="col col-md-3 fest">
+        <img src="{{poster}}" alt="{{title}}" />
+        <div class="text-center">
+          <h5>{{title}}</h5>
+          <p>{{country}}</p>
+          <p>Submission Deadline:
+            {{formatDate "DD-MMM-YYYY" submissionDeadline}}
+          </p>
+          <a href="/festivals/{{_id}}" class="btn btn-outline-dark">View details</a>
+        </div>
+      </div>
+
+    {{/each}}
   </div>
 </div>

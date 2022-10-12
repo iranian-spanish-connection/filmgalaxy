@@ -2,18 +2,46 @@
 <div><h2 class="headlines">Edit My Festival</h2></div>
 </section>
 
+<div class="d-flex justify-content-center">
+
 <div class="content-body">
+
 {{#if myFestival}}
-<form action="/profile/myfestival/edit" method="POST" enctype="multipart/form-data">
+
+<form 
+action="/profile/myfestival/edit" 
+method="POST" 
+enctype="multipart/form-data"
+>
 
     <h2>Festival Information</h2>
-    <label>Festival Title (English) <input type="text" name="title" value="{{myFestival.title}}"/></label>
-    <label>Brief Description (English) <textarea type="text" name="description" rows="4" cols="50" />{{myFestival.description}}</textarea>
+    <label>Festival Title 
+        <input class="form-control"
+          placeholder="Festival Title"
+          aria-label="default input example" 
+          type="text" 
+          name="title" 
+          value="{{myFestival.title}}"
+          /></label>
 
+    <div class="form-outline w-100 mb-4">
+    <label for="textAreaExample6" class="form-label">Brief Description</label> 
+        
+        <textarea 
+          type="text" 
+          name="description" 
+          placeholder="Description in English"
+          class="form-control"
+          id="textAreaExample6"
+          rows="3"
+         />{{myFestival.description}}
+        </textarea>
+    </div>
 
     <h2>Specifications</h2>
     <label>Country
-            <select id="country" name="country" class="form-control" value="{{myFestival.country}}">
+            <select id="country" name="country" class="form-select"
+          aria-label="Default select example" value="{{myFestival.country}}">
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -256,40 +284,146 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
     </label>
-<label>Location <input type="text" name="location" value="{{myFestival.location}}" /></label>
+<label>Location <input class="form-control"
+          aria-label="default input example"
+          type="text"
+          name="location" value="{{myFestival.location}}" /></label>
     <label>Format
-        <select name="format" value="{{myFestival.format}}" >
+        <select name="format" class="form-control" value="{{myFestival.format}}" >
             <option value="" selected disabled hidden>Choose here</option>
             <option value="Onsite">Onsite</option>
             <option value="Online">Online</option>
             <option value="Hybrid">Hybrid (Online & Onsite)</option>
         </select>
     </label>
-    <label>Event Start Date <input type="date" name="eventStartDate" value="{{myFestival.eventStartDate}}" /></label>
-    <label>Event End Date <input type="date" name="eventEndDate" value="{{myFestival.eventEndDate}}" /></label>
-    <label>Submission Deadline <input type="date" name="submissionDeadline" value="{{myFestival.submissionDeadline}}" /></label>
-    <label>Entry fee <input type="number" min="0" name="entryFee" value="{{myFestival.entryFee}}" /></label>
-    <label>Projects to Submit
-        <select multiple name="acceptedCategories" value="{{myFestival.acceptedCategories}}" >
-            <option value="Fiction">Fiction</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Experimental">Experimental</option>
-            <option value="Animation">Animation</option>
-        </select>
-    </label>
-    <label>Accepted Project Length 
-        <select multiple name="acceptedLength" value="{{myFestival.acceptedLength}}" >
-            <option value="Feature-length">Feature-length</option>
-            <option value="Medium-length">Medium-length</option>
-            <option value="Short Film">Short Film</option>
-        </select>
-    </label>
+    <label>Event Start Date <input class="form-control" aria-label="default input example" type="date" name="eventStartDate" value="{{myFestival.eventStartDate}}" /></label>
+    <label>Event End Date <input class="form-control" aria-label="default input example" type="date" name="eventEndDate" value="{{myFestival.eventEndDate}}" /></label>
+    <label>Submission Deadline <input class="form-control" aria-label="default input example" type="date" name="submissionDeadline" value="{{myFestival.submissionDeadline}}" /></label>
+    <label>Entry fee <input class="form-control"
+          aria-label="default input example" type="number" min="0" name="entryFee" value="{{myFestival.entryFee}}" /></label>
+    <section name="acceptedCategories" value="{{myFestival.acceptedCategories}}">
+        <label>Projects to Submit
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              name="acceptedCategories"
+              value="Fiction"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Fiction
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckChecked"
+              name="acceptedCategories"
+              value="Documentary"
+            />
+            <label class="form-check-label" for="flexCheckChecked">
+              Documentary
+            </label>
+          </div>
+          
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              name="acceptedCategories"
+              value="Experimental"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Experimental
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckChecked"
+              name="acceptedCategories"
+              value="Animation"
+            />
+            <label class="form-check-label" for="flexCheckChecked">
+              Animation
+            </label>
+          </div>
+        </label>
+      </section>
+
+
+
+    <section multiple name="acceptedLength" value="{{myFestival.acceptedLength}}">
+        <label>Accepted Project Length
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              name="acceptedLength"
+              value="Feature-length"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Feature-length
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              name="acceptedLength"
+              value="Medium-length"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Medium-length
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              name="acceptedLength"
+              value="Short Film"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Short Film
+            </label>
+          </div>
+        </label>
+      </section>
+
 
 
     <h2>Contacts</h2>
-    <label>Contact Person <input type="text" name="contactPerson" value="{{myFestival.contactPerson}}" /></label>
-    <label>Contact Email <input type="email" name="contactEmail" value="{{myFestival.contactEmail}}" /></label>
-    <label>Website<input type="text" name="website" value="{{myFestival.website}}" /></label>
+    <label>Contact Person 
+        <input class="form-control"
+          aria-label="default input example"
+          type="text"
+          name="contactPerson" 
+          value="{{myFestival.contactPerson}}" 
+        /></label>
+    <label>Contact Email 
+        <input class="form-control"
+          aria-label="default input example"
+          type="email"
+          name="contactEmail" 
+          value="{{myFestival.contactEmail}}" 
+        /></label>
+    <label>Website<input class="form-control"
+          aria-label="default input example"
+          type="text"
+          name="website" 
+          value="{{myFestival.website}}" 
+        /></label>
 
 
     <h2>Festival Files</h2>
@@ -303,7 +437,7 @@
     /></label>
     <input type="text" name="existingPoster" hidden value="{{myFestival.poster}}">
 
-    <label for="photos" class="form-label">Still Photos
+    <label for="photos" class="form-label">Logo
     <input
         class="form-control"
         type="file"
@@ -314,7 +448,7 @@
     <input type="text" name="existingPhotos" hidden value="{{myFestival.photos}}">
     {{! FILES }}
     <br/> 
-    <button type="submit">Save Changes In My Festival</button>
+    <button class="form-control btn btn-primary" type="submit">Save Changes In My Festival</button>
 </form>
 {{/if}}
 </div>

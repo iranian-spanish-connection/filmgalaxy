@@ -1,6 +1,6 @@
-{{! <section class="heads" id="festival-head">
+{{!-- <section class="heads" id="festival-head">
   <div><h2 class="headlines">My Festival</h2></div>
-</section> }}
+</section> --}}
 
 {{#if festivalFromDB}}
 
@@ -12,7 +12,7 @@
         <div class="row g-0">
           <div class="col-md-4">
             <img
-              src="{{festivalFromDB.logo}}"
+              src="{{festivalFromDB.photos}}"
               class="img-fluid rounded-start"
               alt="..."
             />
@@ -23,7 +23,7 @@
             />
             <br />
             <br />
-            <br />
+
             <a
               class="form-control btn btn-outline-secondary btn-sm"
               href="/profile/myfestival/edit"
@@ -40,37 +40,44 @@
             </form>
           </div>
 
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{festivalFromDB.title}}</h5>
-              <h5 class="card-title">Festival Information</h5>
-              <p class="card-text"><strong>Brief Description</strong>
-                {{festivalFromDB.description}}</p>
-              <p class="card-text"><strong>Country</strong>
-                {{festivalFromDB.country}}</p>
-              <p class="card-text"><strong>Location</strong>
-                {{festivalFromDB.location}}</p>
-              <p class="card-text"><strong>Format</strong>
-                {{festivalFromDB.format}}</p>
-              <p class="card-text"><strong>Event Start Date</strong>
-                {{festivalFromDB.eventStartDate}}</p>
-              <p class="card-text"><strong>Event End Date</strong>
-                {{festivalFromDB.eventEndDate}}</p>
-              <p class="card-text"><strong>Submission Deadline</strong>
-                {{festivalFromDB.submissionDeadline}}</p>
-              <p class="card-text"><strong>Entry fee</strong>
-                {{festivalFromDB.entryFee}}</p>
-              <p class="card-text"><strong>Projects to Submit</strong>
-                {{festivalFromDB.acceptedCategories}}</p>
-              <p class="card-text"><strong>Accepted Project Length</strong>
-                {{festivalFromDB.acceptedLength}}</p>
+                {{!-- <div class="col-md-4">
+                        <img src="{{festivalFromDB.logo}}" class="img-fluid rounded-start" alt="..." />
+                        <img src="{{festivalFromDB.poster}}" class="img-fluid rounded-start" alt="..."> <br/>  <br/>  <br/>
+                        <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/myfestival/edit">Edit My Festival</a>
+                        <a class="form-control btn btn-outline-secondary btn-sm" href="/profile/myfestival/manage">Manage My Festival</a>
+                        <form action="/profile/myfestival/remove" method="POST">
+                            <button class="form-control btn btn-outline-secondary btn-sm" type="submit">Remove My Festival</button>
+                        </form>
+                </div> --}}
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">{{festivalFromDB.title}}</h3s> <br/><br/>
+                        <h5 class="card-title">Festival Information</h5>
+                        <p class="card-text"><small>Brief Description</small>  {{festivalFromDB.description}}</p>
+                        <p class="card-text"><small>Country</small> {{festivalFromDB.country}}</p>
+                        <p class="card-text"><small>Location</small>  {{festivalFromDB.location}}</p>
+                        <p class="card-text"><small>Format</small>  {{festivalFromDB.format}}</p>
+                        <p class="card-text"><small>Event Start Date</small>  {{festivalFromDB.eventStartDate}}</p>
+                        <p class="card-text"><small>Event End Date</small>  {{festivalFromDB.eventEndDate}}</p>
+                        <p class="card-text"><small>Submission Deadline</small>  {{festivalFromDB.submissionDeadline}}</p>
+                        <p class="card-text"><small>Entry fee</small>  {{festivalFromDB.entryFee}}</p>
+                        <p class="card-text"><small>Projects to Submit</small>  {{festivalFromDB.acceptedCategories}}</p>
+                        <p class="card-text"><small>Accepted Project Length</small>  {{festivalFromDB.acceptedLength}}</p> <br/>
+                        
+                        {{!-- <h5 class="card-title">Contacts</h5>
+                        <p class="card-text"><strong>Contact Person</strong>  {{festivalFromDB.contactPerson}}</p>
+                        <p class="card-text"><strong>Contact Email</strong>  {{festivalFromDB.contactEmail}}</p>
+                        <p class="card-text"><strong>Website</strong>  {{festivalFromDB.website}}</p>
+                    </div>
+                </div> --}}
 
               <h5 class="card-title">Contacts</h5>
-              <p class="card-text"><strong>Contact Person</strong>
+              <p class="card-text"><small>Contact Person</small>
                 {{festivalFromDB.contactPerson}}</p>
-              <p class="card-text"><strong>Contact Email</strong>
+              <p class="card-text"><small>Contact Email</small>
                 {{festivalFromDB.contactEmail}}</p>
-              <p class="card-text"><strong>Website</strong>
+              <p class="card-text"><small>Website</small>
                 {{festivalFromDB.website}}</p>
             </div>
           </div>
@@ -79,6 +86,7 @@
       </div>
     </div>
   </div>
+
 {{else}}
 
   <h3 class="add-festival">You have no Festival added. Use the link below to
