@@ -20,14 +20,18 @@ router.get("/profile/projects/create", isLoggedIn, (req, res) => {
 });
 
 //ADD A PROJECT
-
+const fields = [
+  { name: "poster", maxCount: 1 },
+  { name: "photos", maxCount: 8 },
+];
 router.post(
   "/profile/projects/create",
-  fileUploader.array("file", 12),
+  fileUploader.fields(fields),
   (req, res) => {
-    console.log("req.files>>>", req.files);
-    const posterPath = req.files[0].path;
-    const stillPaths = req.files.slice(1).map((file) => file.path);
+    let posterPath, photosPaths;
+    if (req.files.poster) posterPath = req.files.poster[0].path;
+    if (req.files.photos) photosPaths = req.files.photos.map((e) => e.path);
+
     const newProject = {
       title: req.body.title,
       country: req.body.country,
@@ -43,7 +47,7 @@ router.post(
       projectlength: req.body.projectlength,
       projectType: req.body.projectType,
       poster: posterPath,
-      still: stillPaths,
+      photos: photosPaths,
       trailer: req.body.trailer,
       preview: req.body.preview,
       submitter: req.session.user,
@@ -78,6 +82,7 @@ router.get("/profile/projects/:title", (req, res, next) => {
 router.get("/profile/projects/:title/edit", (req, res, next) => {
   Film.findOne({ title: req.params.title })
     .then((filmDetails) => {
+      console.log("filmDetails>>>", filmDetails);
       res.render("projects/editproject", filmDetails);
     })
     .catch((err) => {
@@ -86,38 +91,54 @@ router.get("/profile/projects/:title/edit", (req, res, next) => {
     });
 });
 
-router.post("/profile/projects/:title/edit", (req, res, next) => {
-  const updatedProject = {
-    title: req.body.title,
-    country: req.body.country,
-    language: req.body.language,
-    genre: req.body.genre,
-    completionDate: req.body.completionDate,
-    runtime: req.body.runtime,
-    director: req.body.director,
-    writer: req.body.writer,
-    cast: req.body.cast,
-    producer: req.body.producer,
-    synopsis: req.body.synopsis,
-    projectlength: req.body.projectlength,
-    projectType: req.body.projectType,
-    poster: req.body.poster,
-    still: req.body.still,
-    trailer: req.body.trailer,
-    preview: req.body.preview,
-    submitter: req.session.user,
-    submittedInFestivals: req.body.submittedInFestivals,
-  };
+router.post(
+  "/profile/projects/:title/edit",
+  fileUploader.fields(fields),
+  (req, res, next) => {
+    let posterPath, photosPaths;
+    if (req.files.poster) {
+      posterPath = req.files.poster[0].path;
+    } else {
+      posterPath = req.body.existingPoster;
+    }
+    if (req.files.photos) {
+      photosPaths = req.files.photos.map((e) => e.path);
+    } else {
+      photosPaths = req.body.existingPhotos.split(",");
+    }
 
-  Film.findOneAndUpdate({ title: req.params.title }, updatedProject)
-    .then(() => {
-      res.redirect(`/profile/projects/${updatedProject.title}`);
-    })
-    .catch((err) => {
-      console.log("Error updating project", err);
-      next();
-    });
-});
+    const updatedProject = {
+      title: req.body.title,
+      country: req.body.country,
+      language: req.body.language,
+      genre: req.body.genre,
+      completionDate: req.body.completionDate,
+      runtime: req.body.runtime,
+      director: req.body.director,
+      writer: req.body.writer,
+      cast: req.body.cast,
+      producer: req.body.producer,
+      synopsis: req.body.synopsis,
+      projectlength: req.body.projectlength,
+      projectType: req.body.projectType,
+      poster: posterPath,
+      photos: photosPaths,
+      trailer: req.body.trailer,
+      preview: req.body.preview,
+      submitter: req.session.user,
+      submittedInFestivals: req.body.submittedInFestivals,
+    };
+
+    Film.findOneAndUpdate({ title: req.params.title }, updatedProject)
+      .then(() => {
+        res.redirect(`/profile/projects/${updatedProject.title}`);
+      })
+      .catch((err) => {
+        console.log("Error updating project", err);
+        next();
+      });
+  }
+);
 
 //DELETE PROJECT
 

@@ -31,7 +31,7 @@ const filmSchema = new Schema({
     type: String,
     default: "/images/default-movie.jpg"
   },
-  still: [
+  photos: [
     {
       type: String,
       default: "/images/default-movie.jpg"
@@ -53,8 +53,8 @@ const filmSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "FilmFestival",
-    }]
-  })
-
+    },
+  ],
+});
 
 module.exports = model("Film", filmSchema);
