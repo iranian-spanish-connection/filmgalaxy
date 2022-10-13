@@ -8,7 +8,7 @@ body {
 /*background: -webkit-linear-gradient(to right, #928DAB, #431a2a);  /* Chrome 10-25, Safari 5.1-6 */
 /*background: linear-gradient(to right, #928DAB, #7e3a53); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
 */
-.prj{
+.prj {
   margin-bottom: 2%;
 }
 .content-body {
@@ -29,47 +29,41 @@ body {
   width: 100%;
 } */
 
-
-
-
 #containerIntro h1,
 #containerIntro p {
-    display: inline;
-    vertical-align: top;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 28px;
+  display: inline;
+  vertical-align: top;
+  font-family: "Open Sans", sans-serif;
+  line-height: 28px;
 }
-#containerIntro{
-  margin-bottom: 10px;;
+#containerIntro {
+  margin-bottom: 10px;
 }
-
 
 .init {
-margin: 50px auto;
-
+  margin: 50px auto;
 }
 
-
-#bg-div-img{
+#bg-div-img {
   width: 100%;
   height: 100%;
   background-image: url("/images/film-background.jpg");
   background-size: cover;
 }
 
-.about > p{
+.about > p {
   color: white;
   text-align: justify;
   margin: 5% 20%;
 }
 
-.about > h5{
+.about > h5 {
   color: white;
   text-align: center;
   padding-top: 10%;
 }
 
-#logo-two{
+#logo-two {
   max-width: 10vw;
   min-width: 150px;
   margin: 0;
@@ -79,13 +73,16 @@ margin: 50px auto;
 #all-page {
   max-width: 90vw;
   margin: 10px 50px;
-
-
 }
+
 .content {
   background-color: rgb(255, 255, 255);
   padding-top: 0;
   margin-top: 0;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 }
 
 #search {
@@ -94,11 +91,10 @@ margin: 50px auto;
   align-items: center;
 }
 
-.footer{
+.footer {
   color: aliceblue;
   background-color: #151515;
 }
-
 
 /* #add-festival {
   padding: 20px;
@@ -114,7 +110,6 @@ margin: 50px auto;
   text-align: center;
 }
 
-
 /* #add-festival > a {
   color: white;
 } */
@@ -128,7 +123,7 @@ ul {
 }
 
 .title {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: grey;
   text-align: right;
   padding: 0 1rem;
@@ -141,8 +136,6 @@ ul {
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 2%;
-
-  
 }
 
 #festival-head {
@@ -172,12 +165,10 @@ ul {
 }
 
 .button {
-  
   margin: 20 20px 20px auto;
 }
 
-
-.btn{
+.btn {
   margin: 2px;
 }
 /* .btn {

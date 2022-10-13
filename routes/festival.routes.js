@@ -50,10 +50,6 @@ router.get("/festivals/:festivalId", (req, res, next) => {
 
 //MY FESTIVAL
 
-//   router.get("/profile/myfestival", (req, res) => {
-//     res.render("festivals/myfestival");
-// });
-
 router.get("/profile/myfestival", (req, res) => {
   Festival.findOne({ submitter: req.session.user._id })
     .then((festivalFromDB) => {
