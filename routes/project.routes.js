@@ -19,6 +19,17 @@ router.get("/profile/projects/create", isLoggedIn, (req, res) => {
   res.render("projects/create");
 });
 
+
+function getId(url) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+
+  return (match && match[2].length === 11)
+    ? match[2]
+    : null;
+}
+
+
 //ADD A PROJECT
 const fields = [
   { name: "poster", maxCount: 1 },
@@ -31,6 +42,7 @@ router.post(
     let posterPath, photosPaths;
     if (req.files.poster) posterPath = req.files.poster[0].path;
     if (req.files.photos) photosPaths = req.files.photos.map((e) => e.path);
+    let preview = getId(req.body.preview);
 
     const newProject = {
       title: req.body.title,
@@ -49,7 +61,7 @@ router.post(
       poster: posterPath,
       photos: photosPaths,
       trailer: req.body.trailer,
-      preview: req.body.preview,
+      preview: preview,
       submitter: req.session.user,
       submittedInFestivals: req.body.submittedInFestivals,
     };
@@ -106,6 +118,7 @@ router.post(
     } else {
       photosPaths = req.body.existingPhotos.split(",");
     }
+    let preview = getId(req.body.preview);
 
     const updatedProject = {
       title: req.body.title,
@@ -124,11 +137,10 @@ router.post(
       poster: posterPath,
       photos: photosPaths,
       trailer: req.body.trailer,
-      preview: req.body.preview,
+      preview: preview,
       submitter: req.session.user,
       submittedInFestivals: req.body.submittedInFestivals,
     };
-
     Film.findOneAndUpdate({ title: req.params.title }, updatedProject)
       .then(() => {
         res.redirect(`/profile/projects/${updatedProject.title}`);
