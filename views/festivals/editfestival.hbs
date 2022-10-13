@@ -12,6 +12,8 @@
 action="/profile/myfestival/edit" 
 method="POST" 
 enctype="multipart/form-data"
+id="formEditFestival"
+
 >
 
     <h2>Festival Information</h2>
@@ -22,6 +24,7 @@ enctype="multipart/form-data"
           type="text" 
           name="title" 
           value="{{myFestival.title}}"
+          required
           /></label>
 
     <div class="form-outline w-100 mb-4">
@@ -34,6 +37,7 @@ enctype="multipart/form-data"
           class="form-control"
           id="textAreaExample6"
           rows="3"
+          required
          />{{myFestival.description}}
         </textarea>
     </div>
@@ -41,7 +45,7 @@ enctype="multipart/form-data"
     <h2>Specifications</h2>
     <label>Country
             <select id="country" name="country" class="form-select"
-          aria-label="Default select example">
+          aria-label="Default select example" required>
               <option value="" selected disabled hidden>Choose here</option>
               <option value="{{myFestival.country}}" selected>{{myFestival.country}}</option>
               {{#each countryList}}
@@ -52,9 +56,9 @@ enctype="multipart/form-data"
 <label>Location <input class="form-control"
           aria-label="default input example"
           type="text"
-          name="location" value="{{myFestival.location}}" /></label>
+          name="location" value="{{myFestival.location}}" required/></label>
     <label>Format
-        <select name="format" class="form-control" value="{{myFestival.format}}" >
+        <select name="format" class="form-control" value="{{myFestival.format}}" required >
             <option value="" selected disabled hidden>Choose here</option>
             <option value="{{myFestival.format}}" selected>{{myFestival.format}}</option>
             {{#each formatList}}
@@ -63,13 +67,14 @@ enctype="multipart/form-data"
         </select>
     </label>
     <label>Event Start Date <input class="form-control" aria-label="default input example" type="date" 
-        name="eventStartDate" value="{{formatDate "YYYY-MM-DD" myFestival.eventStartDate}}" /></label>
+        name="eventStartDate" value="{{formatDate "YYYY-MM-DD" myFestival.eventStartDate}}" required/></label>
     <label>Event End Date <input class="form-control" aria-label="default input example" type="date" 
-        name="eventEndDate" value="{{formatDate "YYYY-MM-DD" myFestival.eventEndDate}}" /></label>
+        name="eventEndDate" value="{{formatDate "YYYY-MM-DD" myFestival.eventEndDate}}" required/></label>
     <label>Submission Deadline <input class="form-control" aria-label="default input example" type="date" 
-        name="submissionDeadline" value="{{formatDate "YYYY-MM-DD" myFestival.submissionDeadline}}" /></label>
-    <label>Entry fee <input class="form-control"
-          aria-label="default input example" type="number" min="0" name="entryFee" value="{{myFestival.entryFee}}" /></label>
+        name="submissionDeadline" value="{{formatDate "YYYY-MM-DD" myFestival.submissionDeadline}}" required/></label>
+    <label>Entry fee 
+      <input class="form-control" aria-label="default input example" type="number" min="0" 
+      name="entryFee" value="{{myFestival.entryFee}}" required/></label>
     <section name="acceptedCategories">
         <label>Projects to Submit
           {{#each myFestival.acceptedCategories}}
@@ -152,6 +157,7 @@ enctype="multipart/form-data"
           type="text"
           name="contactPerson" 
           value="{{myFestival.contactPerson}}" 
+          required
         /></label>
     <label>Contact Email 
         <input class="form-control"
@@ -159,12 +165,14 @@ enctype="multipart/form-data"
           type="email"
           name="contactEmail" 
           value="{{myFestival.contactEmail}}" 
+          required
         /></label>
     <label>Website<input class="form-control"
           aria-label="default input example"
-          type="text"
+          type="url"
           name="website" 
           value="{{myFestival.website}}" 
+          required
         /></label>
 
     <h2>Festival Files</h2>

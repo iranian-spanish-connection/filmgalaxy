@@ -5,6 +5,7 @@ body {
   margin: auto 5rem;
   font: 18px calibri;
 }
+
 #nav {
   background-color: rgb(255, 255, 255) !important;
 }
@@ -52,8 +53,9 @@ body {
   background-size: cover;
 }
 
-.about > p{
-  color: #D4AF37;
+.about > p {
+  background-color: #0000004e;
+  color: #d4af37;
   text-align: justify;
   margin: 10% 10%;
   padding: 50px;
@@ -62,13 +64,13 @@ body {
 }
 
 .about > h5 {
-  color: #D4AF37;
+  color: #d4af37;
   font-size: 2rem;
   text-align: center;
   padding-top: 10%;
 }
 
-.about{
+.about {
   background-color: #0000008e;
   text-align: justify;
   height: 100%;
@@ -81,6 +83,8 @@ body {
   min-width: 150px;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: auto;
 }
 
 #all-page {
@@ -105,7 +109,7 @@ body {
 }
 
 .footer {
-  color: #D4AF37;
+  color: #d4af37;
   background-color: #151515;
 }
 
@@ -139,7 +143,7 @@ ul {
   font-size: 0.8rem;
   color: grey;
   text-align: right;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   height: 12px;
 }
 
@@ -290,8 +294,7 @@ h6 {
   padding-top: 10px;
 }
 
-
-.film-img{
+.film-img {
   height: 100% !important;
   max-height: 30vh !important;
   max-width: 20vh !important;
@@ -314,3 +317,6 @@ h6 {
   width: 100%;
 }
 
+.navbar-collapse {
+  flex-grow: 0 !important;
+}

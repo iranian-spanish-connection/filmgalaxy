@@ -18,6 +18,7 @@ router.get("/festivals", (req, res, next) => {
     })
     .catch((err) => {
       console.log("Error getting festivals from DB", err);
+      next();
     });
 });
 
@@ -38,6 +39,7 @@ router.post("/festivals", (req, res, next) => {
     })
     .catch((err) => {
       console.log("Error getting festivals from DB", err);
+      next();
     });
 });
 
@@ -64,6 +66,7 @@ router.get("/profile/myfestival", (req, res) => {
     })
     .catch((err) => {
       console.log("Error getting my festival from db", err);
+      next();
     });
 });
 
@@ -116,6 +119,7 @@ router.post(
       })
       .catch((err) => {
         console.log("Error creating my festival", err);
+        next();
       });
   }
 );
@@ -190,6 +194,7 @@ router.post(
       })
       .catch((err) => {
         console.log("Error updating my festival", err);
+        next();
       });
   }
 );
@@ -204,6 +209,7 @@ router.post("/profile/myfestival/remove", (req, res, next) => {
     })
     .catch((err) => {
       console.log("Error deleting my festival", err);
+      next();
     });
 });
 
