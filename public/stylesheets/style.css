@@ -198,7 +198,6 @@ ul {
   border-top-right-radius: 10%;
 }
 
-
 .video {
   margin: 0 0 10px 0;
   border: 1px solid rgb(183, 181, 181);
@@ -209,11 +208,10 @@ ul {
 .center {
   width: 33vw;
   height: 18vw;
-  margin-left:1vw; 
+  margin-left: 1vw;
   margin-top: 1vw;
   border-radius: 5px;
 }
-
 
 .footer-text {
   font-size: 1.1vw;
@@ -221,8 +219,8 @@ ul {
   line-height: 0.9em;
 }
 
-
-.f-one > p, h6{
+.f-one > p,
+h6 {
   padding-left: 15%;
 }
 
@@ -234,10 +232,10 @@ ul {
   padding-left: 15%;
 }
 
-.f-title{
+.f-title {
   font-size: 1.3vw;
 }
-.car-frame{
+.car-frame {
   margin: 0 0 10px 0;
   border: 1px solid rgb(228, 228, 228);
   border-left: none;
@@ -246,10 +244,10 @@ ul {
   height: auto;
 }
 
-.carousel{
+.carousel {
   max-width: 80%;
   display: block;
-  margin: 1% ;
+  margin: 1%;
   margin-left: auto;
   margin-right: auto;
-} 
+}
