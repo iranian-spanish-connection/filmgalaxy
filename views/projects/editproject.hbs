@@ -17,8 +17,10 @@
           placeholder="Title in English"
           aria-label="default input example"
           type="text"
-          name="title" value="{{filmDetails.title}}"/>
-    </label>
+          name="title" 
+          value="{{filmDetails.title}}"
+          required
+        /></label>
 
     <div class="form-outline w-100 mb-4">
 
@@ -28,14 +30,16 @@
           class="form-control"
           id="textAreaExample6"
           rows="3"
-          name="synopsis"/>{{filmDetails.synopsis}}
+          name="synopsis"
+          required
+          />{{filmDetails.synopsis}}
     </textarea>
 
     </div>
 
     <h2>Specifications</h2>
     <label>Country of Origin 
-            <select id="country" name="country" class="form-select" aria-label="Default select example">
+            <select id="country" name="country" class="form-select" aria-label="Default select example" required>
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="{{filmDetails.country}}" selected>{{filmDetails.country}}</option>
                 {{#each countryList}}
@@ -46,7 +50,7 @@
     </label>
     <label>Original Language 
         <select data-placeholder="Choose a Language..." name="language" class="form-select"
-          aria-label="Default select example" value="{{filmDetails.language}}">
+          aria-label="Default select example" value="{{filmDetails.language}}" required>
             <option value="" selected disabled hidden>Choose here</option>
             <option value="{{filmDetails.language}}" selected>{{filmDetails.language}}</option>
             {{#each languageList}}
@@ -56,10 +60,10 @@
     </label>
     <label>Completion Date <input class="form-control"
           aria-label="default input example" type="date" name="completionDate" 
-          value="{{formatDate "YYYY-MM-DD" filmDetails.completionDate}}"/></label>
+          value="{{formatDate "YYYY-MM-DD" filmDetails.completionDate}}" required/></label>
     <label>Genres 
         <select name="genre" class="form-select"
-          aria-label="Default select example" size="3" multiple value="{{filmDetails.genre}}">
+          aria-label="Default select example" size="3" multiple value="{{filmDetails.genre}}" required>
             <option value="" selected disabled hidden>Choose here</option>
             {{#each filmDetails.genre}}
               <option value="{{this}}" selected>{{this}}</option>
@@ -93,6 +97,7 @@
                 id="radio{{this}}"
                 name="projectType"
                 value="{{this}}"
+                required
               />
               <label class="form-check-label" for="radio{{this}}">
                 {{this}}
@@ -127,6 +132,7 @@
                 id="radio{{this}}"
                 name="projectlength"
                 value="{{this}}"
+                required
               />
               <label class="form-check-label" for="radio{{this}}">
                 {{this}}
@@ -144,12 +150,12 @@
           type="number"
           name="runtime"
           min="1"
-          max="300" value="{{filmDetails.runtime}}"/>minutes</label>
+          max="300" value="{{filmDetails.runtime}}" required/>minutes</label>
     <h2>Credits</h2>
-    <label>Director <input class="form-control" type="text" name="director" value="{{filmDetails.director}}"/></label>
-    <label>Writer <input class="form-control" type="text" name="writer" value="{{filmDetails.writer}}"/></label>
-    <label>Cast <input class="form-control" type="text" name="cast" value="{{filmDetails.cast}}"/></label>
-    <label>Producer <input class="form-control" type="text" name="producer" value="{{filmDetails.producer}}"/></label>
+    <label>Director <input class="form-control" type="text" name="director" value="{{filmDetails.director}}" required/></label>
+    <label>Writer <input class="form-control" type="text" name="writer" value="{{filmDetails.writer}}" required/></label>
+    <label>Cast <input class="form-control" type="text" name="cast" value="{{filmDetails.cast}}" required/></label>
+    <label>Producer <input class="form-control" type="text" name="producer" value="{{filmDetails.producer}}" required/></label>
 
     <h2>Project Files</h2>
     {{! FILES }}
@@ -159,6 +165,7 @@
         type="file"
         id="poster"
         name="poster"
+        required
     /></label>
     <input type="text" name="existingPoster" hidden value="{{filmDetails.poster}}">
 
@@ -168,12 +175,13 @@
         type="file"
         id="photos"
         name="photos"
+        required
         multiple
     /></label>
     <input type="text" name="existingPhotos" hidden value="{{filmDetails.photos}}">
     {{! FILES }}
-    <label>Trailer <input class="form-control" type="text" name="trailer"/></label>
-    <label>Preview <input class="form-control" type="text" name="preview"/></label>
+    <label>Trailer <input class="form-control" type="text" name="trailer" required/></label>
+    <label>Preview <input class="form-control" type="text" name="preview" required/></label>
 
     <br/> 
     <button class="form-control btn btn-primary" type="submit">Save Changes</button>

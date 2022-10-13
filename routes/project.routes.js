@@ -44,6 +44,7 @@ function getId(url) {
 }
 
 
+
 //ADD A PROJECT
 const fields = [
   { name: "poster", maxCount: 1 },
@@ -79,6 +80,7 @@ router.post(
       submitter: req.session.user,
       submittedInFestivals: req.body.submittedInFestivals,
     };
+
     Film.create(newProject)
       .then(() => {
         console.log("Project was added successfully");

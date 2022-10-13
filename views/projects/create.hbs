@@ -21,6 +21,7 @@
           aria-label="default input example"
           type="text"
           name="title"
+          required
         /></label>
 
       <div class="form-outline w-100 mb-4">
@@ -31,6 +32,7 @@
           id="textAreaExample6"
           rows="3"
           name="synopsis"
+          required
         ></textarea>
       </div>
 
@@ -41,6 +43,7 @@
           name="country"
           class="form-select"
           aria-label="Default select example"
+          required
         >
           <option value="" selected disabled hidden>Choose here</option>
           {{#each countryList}}
@@ -54,6 +57,7 @@
           name="language"
           class="form-select"
           aria-label="Default select example"
+          required
         >
           <option value="" selected disabled hidden>Choose here</option>
           {{#each languageList}}
@@ -68,6 +72,7 @@
           aria-label="default input example"
           type="date"
           name="completionDate"
+          required
         /></label>
 
       <label>Genres
@@ -77,6 +82,7 @@
           aria-label="Default select example"
           size="3"
           multiple
+          required
         >
           <option value="" selected disabled hidden>Choose here</option>
           {{#each genreList}}
@@ -94,6 +100,7 @@
                 id="radio{{this}}"
                 name="projectType"
                 value="{{this}}"
+                required
               />
               <label class="form-check-label" for="radio{{this}}">
                 {{this}}
@@ -113,6 +120,7 @@
                 id="radio{{this}}"
                 name="projectlength"
                 value="{{this}}"
+                required
               />
               <label class="form-check-label" for="radio{{this}}">
                 {{this}}
@@ -130,16 +138,17 @@
           name="runtime"
           min="1"
           max="300"
+          required
         />
         minutes</label>
       <h2>Credits</h2>
       <label>Director
-        <input class="form-control" type="text" name="director" /></label>
+        <input class="form-control" type="text" name="director" required/></label>
       <label>Writer
-        <input class="form-control" type="text" name="writer" /></label>
-      <label>Cast <input class="form-control" type="text" name="cast" /></label>
+        <input class="form-control" type="text" name="writer" required/></label>
+      <label>Cast <input class="form-control" type="text" name="cast" required/></label>
       <label>Producer
-        <input class="form-control" type="text" name="producer" /></label>
+        <input class="form-control" type="text" name="producer" required/></label>
 
       <h2>Project Files</h2>
       {{! FILES }}
@@ -149,6 +158,7 @@
           type="file"
           id="poster"
           name="poster"
+          required
         /></label>
 
       <label for="photos" class="form-label">Still Photos
@@ -158,16 +168,21 @@
           id="photos"
           name="photos"
           multiple
+          required
         /></label>
       {{! FILES }}
 
       <label>Trailer
-        <input class="form-control" type="text" name="trailer" /></label>
+        <input class="form-control" type="text" name="trailer" required/></label>
       <label>Preview
-        <input class="form-control" type="text" name="preview" /></label>
+        <input class="form-control" type="text" name="preview" required/></label>
 
       <br />
       <button class="form-control btn btn-primary" type="submit">Save Project</button>
     </form>
   </div>
 </div>
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}

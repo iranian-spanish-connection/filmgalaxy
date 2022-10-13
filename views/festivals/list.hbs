@@ -6,14 +6,9 @@
       <input type="text" name="search" placeholder="Search festivals" />
       <button type="submit">Search</button>
     </form>
-<<<<<<< HEAD
   </div> --}}
   
   
-=======
-  </div> }}
-
->>>>>>> 3f0ee01487dd643e972ca2b7102715fbc167a8ee
   <form action="/festivals" method="POST">
     <div class="input-group">
       <input
@@ -60,7 +55,7 @@
     {{#each festivalsInDB}}
 
       <div class="col col-md-3 fest">
-        <img src="{{poster}}" alt="{{title}}" />
+        <img class="fest-img" src="{{poster}}" alt="{{title}}" />
         <div class="text-center">
           <h5>{{title}}</h5>
           <p>{{country}}</p>
