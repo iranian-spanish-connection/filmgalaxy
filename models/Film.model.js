@@ -11,9 +11,11 @@ const filmSchema = new Schema({
   language: {
     type: String,
   },
-  genre: {
-    type: String,
-  },
+  genre: [
+    {
+      type: String,
+    },
+  ],
   completionDate: Date,
   runtime: Number,
   director: String,
@@ -29,12 +31,12 @@ const filmSchema = new Schema({
   },
   poster: {
     type: String,
-    default: "/images/default-movie.jpg"
+    default: "/images/default-movie.jpg",
   },
   photos: [
     {
       type: String,
-      default: "/images/default-movie.jpg"
+      default: "/images/default-movie.jpg",
     },
   ],
   trailer: {

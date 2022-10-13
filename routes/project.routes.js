@@ -2,6 +2,14 @@ const router = require("express").Router();
 const Film = require("../models/Film.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
+const countryList = require("../utils/lists/countries");
+const languageList = require("../utils/lists/languages");
+const {
+  genreList,
+  projectTypeList,
+  lengthCategoryList,
+} = require("../utils/lists/project-specs");
+const filterList = require("../utils/lists/filter");
 
 //PROJECTS PAGE
 
@@ -16,7 +24,13 @@ router.get("/profile/projects", (req, res) => {
 });
 
 router.get("/profile/projects/create", isLoggedIn, (req, res) => {
-  res.render("projects/create");
+  res.render("projects/create", {
+    countryList,
+    languageList,
+    genreList,
+    projectTypeList,
+    lengthCategoryList,
+  });
 });
 
 
@@ -94,8 +108,17 @@ router.get("/profile/projects/:title", (req, res, next) => {
 router.get("/profile/projects/:title/edit", (req, res, next) => {
   Film.findOne({ title: req.params.title })
     .then((filmDetails) => {
-      console.log("filmDetails>>>", filmDetails);
-      res.render("projects/editproject", filmDetails);
+      res.render("projects/editproject", {
+        filmDetails,
+        countryList: filterList(countryList, filmDetails.country),
+        languageList: filterList(languageList, filmDetails.language),
+        genreList: filterList(genreList, filmDetails.genre),
+        projectTypeList: filterList(projectTypeList, filmDetails.projectType),
+        lengthCategoryList: filterList(
+          lengthCategoryList,
+          filmDetails.projectlength
+        ),
+      });
     })
     .catch((err) => {
       console.log("error getting project details from DB", err);
