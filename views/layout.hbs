@@ -18,45 +18,38 @@
   <body>
 
     <section id="all-page">
-    <div class="content ">
+      <div class="content">
 
-      <nav>
-
-        {{#if userInSession}}
-          <div class="title">Welcome back {{userInSession.email}}</div>
-        {{/if}}
-                <img id="logo-two" src="/images/film-g-logo.png"/>
-        <ul class="nav">
-          <li><a class="nav-link active" href="/">Film Galaxy</a></li>
-          <li><a class="nav-link" href="/festivals">Browse Festivals</a></li>
+        <img id="logo-two" src="/images/film-g-logo.png" />
+        <div>
           {{#if userInSession}}
-            <li><a class="nav-link" href="/profile/myfestival">My Festival</a></li>
-            <li><a class="nav-link" href="/profile/projects">My Projects</a></li>
-            <li><a class="nav-link" href="/logout">Logout</a></li>
-          {{else}}
-            <li><a class="nav-link" href="/login">Log In</a></li>
-            <li><a class="nav-link" href="/signup">Sign Up</a></li>
+            <div class="title">Welcome back {{userInSession.email}}</div>
           {{/if}}
-        </ul>
-      </nav>
+          <ul class="nav">
+            <li><a class="nav-link active" href="/">Film Galaxy</a></li>
+            <li><a class="nav-link" href="/festivals">Browse Festivals</a></li>
+            {{#if userInSession}}
+              <li><a class="nav-link" href="/profile/myfestival">My Festival</a></li>
+              <li><a class="nav-link" href="/profile/projects">My Projects</a></li>
+              <li><a class="nav-link" href="/logout">Logout</a></li>
+            {{else}}
+              <li><a class="nav-link" href="/login">Log In</a></li>
+              <li><a class="nav-link" href="/signup">Sign Up</a></li>
+            {{/if}}
+          </ul>
+        </div>
 
+      </div>
 
-    </div>
+      {{{body}}}
 
-    {{{body}}}
-
-    <script src="/js/script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"
-    ></script>
-  </section>
+      <script src="/js/script.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"
+      ></script>
+    </section>
   </body>
 
 </html>
-
-
-
-
-
