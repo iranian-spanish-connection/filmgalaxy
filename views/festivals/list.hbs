@@ -50,7 +50,7 @@
   </div>
 </div> --}}
 
-<div class="container text-center">
+{{!-- <div class="container text-center">
   <div class="row align-items-end">
     {{#each festivalsInDB}}
 
@@ -68,4 +68,20 @@
 
     {{/each}}
   </div>
-</div>
+</div> --}}
+
+  <div class="film-container text-center">
+
+    {{#each festivalsInDB}}
+      <div class="text-centers caps2 img-hover-zoom">
+
+        <a href="/festivals/{{_id}}"><img class="fest-image" src="{{poster}}" alt="{{title}}" /></a>
+          <h6 class="text-centers title-film">{{title}}</h6s> <br/><br/>
+          <p><small>Submission Deadline:
+            {{formatDate "DD-MMM-YYYY" submissionDeadline}}
+          </small></p>
+          <a href="/festivals/{{_id}}" class="btn btn-outline-dark">View details</a>
+        
+      </div>
+    {{/each}}
+  </div>

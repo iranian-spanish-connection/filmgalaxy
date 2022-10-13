@@ -8,34 +8,34 @@ const {
 const festivalSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   description: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   country: {
     type: String,
-    required: true,
+    required: false,
   },
   location: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
-  format: { type: String, required: true, enum: formatList },
-  eventStartDate: { type: Date, required: true },
-  eventEndDate: { type: Date, required: true },
-  submissionDeadline: { type: Date, required: true },
-  entryFee: { type: Number, required: true },
-  acceptedCategories: [{ type: String, required: true, enum: projectTypeList }],
-  acceptedLength: [{ type: String, required: true, enum: lengthCategoryList }],
-  contactPerson: { type: String, required: true },
+  format: { type: String, required: false, enum: formatList },
+  eventStartDate: { type: Date, required: false },
+  eventEndDate: { type: Date, required: false },
+  submissionDeadline: { type: Date, required: false },
+  entryFee: { type: Number, required: false },
+  acceptedCategories: [{ type: String, required: false, enum: projectTypeList }],
+  acceptedLength: [{ type: String, required: false, enum: lengthCategoryList }],
+  contactPerson: { type: String, required: false },
   contactEmail: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     match: [
       /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
@@ -45,8 +45,8 @@ const festivalSchema = new Schema({
   },
   website: {
     type: String,
-    required: true,
-    unique: true,
+    required: false,
+    unique: false,
     match: [
       /(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/,
       "Please use a valid url.",
