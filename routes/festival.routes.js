@@ -25,12 +25,13 @@ router.get("/festivals", (req, res, next) => {
 
 router.post("/festivals", (req, res, next) => {
   const textToFind = req.body.search ? req.body.search.trim() : "";
-  Festival.find({
-    $or: [
-      { title: { $regex: `.*${textToFind}.*`, $options: "i" } },
-      { description: { $regex: `.*${textToFind}.*`, $options: "i" } },
-    ],
-  })
+  // Festival.find({
+  //   $or: [
+  //     { title: { $regex: `.*${textToFind}.*`, $options: "i" } },
+  //     { description: { $regex: `.*${textToFind}.*`, $options: "i" } },
+  //   ],
+  // })
+  Festival.find({ title: { $regex: ".*" + textToFind + ".*", $options: "i" } })
     .then((festivalsInDB) => {
       res.render("festivals/list", { festivalsInDB });
     })

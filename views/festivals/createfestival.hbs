@@ -7,6 +7,7 @@
   <div class="content-body">
 
     <form
+      id="formCreateFestival"
       action="/profile/myfestival/create"
       method="POST"
       enctype="multipart/form-data"
@@ -20,8 +21,9 @@
           aria-label="default input example"
           type="text"
           name="title"
+          required
         /></label>
-      <div class="form-outline w-100 mb-4">
+      {{!-- <div class="form-outline w-100 mb-4">
         <label for="textAreaExample6" class="form-label">Brief Description</label>
         <textarea
           placeholder="Description in English"
@@ -29,6 +31,7 @@
           id="textAreaExample6"
           rows="3"
           name="description"
+          required
         ></textarea>
       </div>
 
@@ -39,6 +42,7 @@
           name="country"
           class="form-select"
           aria-label="Default select example"
+          required
         >
           <option value="" selected disabled hidden>Choose here</option>
           {{#each countryList}}
@@ -52,9 +56,10 @@
           aria-label="default input example"
           type="text"
           name="location"
+          required
         /></label>
       <label>Format
-        <select name="format" class="form-control">
+        <select name="format" class="form-control" required>
           <option value="" selected disabled hidden>Choose here</option>
           <option value="Onsite">Onsite</option>
           <option value="Online">Online</option>
@@ -67,6 +72,7 @@
           aria-label="default input example"
           type="date"
           name="eventStartDate"
+          required
         /></label>
       <label>Event End Date
         <input
@@ -74,6 +80,7 @@
           aria-label="default input example"
           type="date"
           name="eventEndDate"
+          required
         /></label>
       <label>Submission Deadline
         <input
@@ -81,6 +88,7 @@
           aria-label="default input example"
           type="date"
           name="submissionDeadline"
+          required
         /></label>
       <label>Entry fee
         <input
@@ -89,8 +97,9 @@
           type="number"
           min="0"
           name="entryFee"
-        /></label>
-      <section name="acceptedCategories">
+          required
+        /></label> --}}
+      <section>
         <label>Projects to Submit
 
           {{#each projectTypeList}}
@@ -110,7 +119,7 @@
         </label>
       </section>
 
-      <section multiple name="acceptedLength">
+      <section>
         <label>Accepted Project Length
           {{#each lengthCategoryList}}
             <div class="form-check">
@@ -129,13 +138,14 @@
         </label>
       </section>
 
-      <h2>Contacts</h2>
+      {{!-- <h2>Contacts</h2>
       <label>Contact Person
         <input
           class="form-control"
           aria-label="default input example"
           type="text"
           name="contactPerson"
+          required
         /></label>
       <label>Contact Email
         <input
@@ -143,6 +153,7 @@
           aria-label="default input example"
           type="email"
           name="contactEmail"
+          required
         /></label>
       <label>Website
         <input
@@ -150,6 +161,7 @@
           aria-label="default input example"
           type="text"
           name="website"
+          required
         /></label>
 
       <h2>Festival Files</h2>
@@ -161,17 +173,20 @@
           type="file"
           id="poster"
           name="poster"
+          required
         /></label>
 
-      <label for="photos" class="form-label">Logo
+      <label for="photos" class="form-label">Logos (maximum of 8)
         <input
           class="form-control"
           type="file"
           id="photos"
           name="photos"
+          title="Choose photos please"
           multiple
+          required
         /></label>
-      {{! FILES }}
+      {{! FILES }} --}}
 
       <br />
       <button class="form-control btn btn-primary" type="submit">Save My
