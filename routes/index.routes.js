@@ -30,12 +30,7 @@ router.get("/films", (req, res, next) => {
 
 router.post("/films", (req, res, next) => {
   const textToFind = req.body.search ? req.body.search.trim() : "";
-  // Festival.find({
-  //   $or: [
-  //     { title: { $regex: `.*${textToFind}.*`, $options: "i" } },
-  //     { description: { $regex: `.*${textToFind}.*`, $options: "i" } },
-  //   ],
-  // })
+
   Film.find({ title: { $regex: ".*" + textToFind + ".*", $options: "i" } })
     .then((filmsFromDB) => {
       res.render("projects/temp-list", { filmsFromDB });
@@ -44,6 +39,21 @@ router.post("/films", (req, res, next) => {
       console.log("Error getting films from DB", err);
     });
 });
+
+
+router.get("/films/:title", (req, res, next) => {
+  const title = req.params.title;
+  Film.findOne({title: title})
+    .then((filmsFromDB) => {
+      res.render("projects/guest-view", filmsFromDB);
+    })
+    .catch((err) => {
+      console.log("error getting film details from DB", err);
+      next();
+    });
+});
+
+
 
 
 module.exports = router;

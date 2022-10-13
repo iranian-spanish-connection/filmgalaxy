@@ -52,14 +52,8 @@ body {
   background-size: cover;
 }
 
-<<<<<<< HEAD
 .about > p{
   color: #D4AF37;
-=======
-.about > p {
-  background-color: #0000004e;
-  color: #d4af37;
->>>>>>> 5408733d60955d320f94cbc95ed7c206940aa38c
   text-align: justify;
   margin: 10% 10%;
   padding: 50px;
@@ -299,8 +293,14 @@ h6 {
 
 .film-img{
   height: 100% !important;
-  max-height: 40vh;
+  max-height: 30vh !important;
+  max-width: 20vh !important;
 }
+.film-txt{
+  max-height: 30vh !important;
+  max-width: 20vh !important;
+}
+
 
 .carrusel-text {
   background-color: black;
@@ -313,3 +313,4 @@ h6 {
   text-align: center;
   width: 100%;
 }
+

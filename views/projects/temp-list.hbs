@@ -20,15 +20,17 @@
 
 
 
-<div class="container text-center">
+<div class="container films">
   <div class="row align-items-end">
     {{#each filmsFromDB}}
 
       <div class="col col-md-3 fest film-prj">
+        
         <img class="fest-img film-img" src="{{poster}}" alt="{{title}}" />
-        <div class="text-center">
+        
+        <div class="text-center film-txt">
           <h5>{{title}}</h5>
-          <a href="/festivals/{{_id}}" class="btn btn-outline-dark">View details</a>
+          <a href="/films/{{this.title}}" class="btn btn-outline-dark">View details</a>
         </div>
       </div>
 
