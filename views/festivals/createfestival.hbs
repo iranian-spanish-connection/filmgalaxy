@@ -1,4 +1,8 @@
 <section class="heads">
+  {{#if errorMessage}}
+    <h5 class="error-message">{{errorMessage}}</h5>
+  {{/if}}
+
   <div><h2 class="headlines">Add My Festival</h2></div>
 </section>
 
@@ -129,7 +133,6 @@
                 id="checkbox{{this}}"
                 name="acceptedLength"
                 value="{{this}}"
-               
               />
               <label class="form-check-label" for="checkbox{{this}}">
                 {{this}}
@@ -160,7 +163,7 @@
         <input
           class="form-control"
           aria-label="default input example"
-          type="text"
+          type="url"
           name="website"
           required
         /></label>

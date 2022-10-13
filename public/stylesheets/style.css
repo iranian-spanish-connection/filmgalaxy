@@ -5,6 +5,7 @@ body {
   margin: auto 5rem;
   font: 18px calibri;
 }
+
 #nav {
   background-color: rgb(255, 255, 255) !important;
 }
@@ -72,6 +73,8 @@ body {
   min-width: 150px;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: auto;
 }
 
 #all-page {
@@ -130,7 +133,7 @@ ul {
   font-size: 0.8rem;
   color: grey;
   text-align: right;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   height: 12px;
 }
 
@@ -291,4 +294,8 @@ h6 {
   color: #fff;
   text-align: center;
   width: 100%;
+}
+
+.navbar-collapse {
+  flex-grow: 0 !important;
 }
