@@ -64,12 +64,34 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">{{synopsis}}</p>
-            <p class="card-text">Project category:
+            <h3 class="card-title">{{title}}</h3>
+            
+                <div class="video">
+                    <iframe class="center" src="https://www.youtube.com/embed/{{preview}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+            <div>
+            <p class="card-text"><small>Synopsis:</small> {{synopsis}}</p>
+            <p class="card-text"><small>Project category:</small>
               {{projectlength}}
               -
               {{projectType}}</p>
+<<<<<<< HEAD
+            <p class="card-text"><small>Director:</small> {{director}}</p>
+            <p class="card-text"><small>Runtime:</small> {{runtime}} minutes</p>
+            <p class="card-text"><small>Country:</small> {{country}}</p>
+            <p class="card-text"><small>Language:</small> {{language}}</p>
+            <p class="card-text"><small>Genre:</small> {{genre}}</p>
+            <p class="card-text"><small>Completion Date:</small> {{completionDate}}</p>
+            <p class="card-text"><small>Runtime:</small> {{runtime}}</p>
+            <p class="card-text"><small>Director:</small> {{director}}</p>
+            <p class="card-text"><small>Writer:</small> {{writer}}</p>
+            <p class="card-text"><small>Cast:</small> {{cast}}</p>
+            <p class="card-text"><small>Producer:</small> {{producer}}</p>
+            <p class="card-text"><small>Trailer:</small> {{trailer}}</p>
+            <p class="card-text"><small>Preview link:</small> {{preview}}</p>
+            <p class="card-text"><small>Submitted in Festivals:</small>
+=======
             <p class="card-text">Director: {{director}}</p>
             <p class="card-text">Runtime: {{runtime}} minutes</p>
             <p class="card-text">Country: {{country}}</p>
@@ -85,8 +107,9 @@
             <p class="card-text">Trailer: {{trailer}}</p>
             <p class="card-text">Preview link: {{preview}}</p>
             <p class="card-text">Submitted in Festivals:
+>>>>>>> 3f0ee01487dd643e972ca2b7102715fbc167a8ee
               {{submittedInFestivals}}</p>
-
+          </div>
           </div>
         </div>
       </div>
