@@ -20,6 +20,7 @@ router.get("/profile/projects", (req, res) => {
     })
     .catch((err) => {
       console.log("problems getting projects from DB");
+      next();
     });
 });
 
@@ -33,17 +34,12 @@ router.get("/profile/projects/create", isLoggedIn, (req, res) => {
   });
 });
 
-
 function getId(url) {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
 
-  return (match && match[2].length === 11)
-    ? match[2]
-    : null;
+  return match && match[2].length === 11 ? match[2] : null;
 }
-
-
 
 //ADD A PROJECT
 const fields = [
@@ -88,6 +84,7 @@ router.post(
       })
       .catch((err) => {
         console.log("There is an error adding project to DB", err);
+        next();
       });
   }
 );
