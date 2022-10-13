@@ -22,6 +22,7 @@ router.get("/festivals", (req, res, next) => {
     });
 });
 
+
 //SEARCH FESTIVALS
 
 router.post("/festivals", (req, res, next) => {
