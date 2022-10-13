@@ -1,12 +1,12 @@
 body {
-  background-color: rgb(255, 247, 247) !important;
+  background-color: rgb(255, 255, 255) !important;
   color: #000000;
   padding: 50px;
   margin: auto 5rem;
   font: 18px calibri;
 }
-nav{
-  background-color: rgb(255, 247, 247) !important;
+#nav{
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .prj{
