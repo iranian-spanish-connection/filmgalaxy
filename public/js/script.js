@@ -45,16 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
     const pwdConfirmation = document.getElementById("pwdConfirmation");
 
-    function validatePassword() {
+    function validate() {
       if (password.value != pwdConfirmation.value) {
         pwdConfirmation.setCustomValidity("Passwords Don't Match");
       } else {
         pwdConfirmation.setCustomValidity("");
       }
     }
-
-    password.onchange = validatePassword;
-    pwdConfirmation.onkeyup = validatePassword;
+    if (password && pwdConfirmation) {
+      password.onchange = validate;
+      pwdConfirmation.onkeyup = validate;
+    }
   }
 
   makeActive();

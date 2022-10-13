@@ -53,14 +53,9 @@ body {
   background-size: cover;
 }
 
-<<<<<<< HEAD
-.about > p{
-  color: #D4AF37;
-=======
 .about > p {
   background-color: #0000004e;
   color: #d4af37;
->>>>>>> 5408733d60955d320f94cbc95ed7c206940aa38c
   text-align: justify;
   margin: 10% 10%;
   padding: 50px;
@@ -69,13 +64,13 @@ body {
 }
 
 .about > h5 {
-  color: #D4AF37;
+  color: #d4af37;
   font-size: 2rem;
   text-align: center;
   padding-top: 10%;
 }
 
-.about{
+.about {
   background-color: #0000008e;
   text-align: justify;
   height: 100%;
@@ -114,7 +109,7 @@ body {
 }
 
 .footer {
-  color: #D4AF37;
+  color: #d4af37;
   background-color: #151515;
 }
 
@@ -299,8 +294,7 @@ h6 {
   padding-top: 10px;
 }
 
-
-.film-img{
+.film-img {
   height: 100% !important;
   max-height: 40vh;
 }
