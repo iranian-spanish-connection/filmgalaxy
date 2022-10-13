@@ -53,18 +53,27 @@ body {
 }
 
 .about > p{
-  background-color: #0000004e;
-  color: rgb(255, 255, 255);
+  color: #D4AF37;
   text-align: justify;
-  margin: 5% 20%;
-  padding: 20px;
-  border-radius: 1%;
+  margin: 10% 10%;
+  padding: 50px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 .about > h5 {
-  color: white;
+  color: #D4AF37;
+  font-size: 2rem;
   text-align: center;
   padding-top: 10%;
+}
+
+.about{
+  background-color: #0000008e;
+  text-align: justify;
+  height: 100%;
+  padding: 20px;
+  font-size: 1rem;
 }
 
 #logo-two {
@@ -96,7 +105,7 @@ body {
 }
 
 .footer {
-  color: aliceblue;
+  color: #D4AF37;
   background-color: #151515;
 }
 
@@ -281,3 +290,10 @@ h6 {
 .prj-item {
   padding-top: 10px;
 }
+
+
+.film-img{
+  height: 100% !important;
+  max-height: 40vh;
+}
+

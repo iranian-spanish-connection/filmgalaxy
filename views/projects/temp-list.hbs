@@ -1,0 +1,37 @@
+<section class="heads" id="search">
+  <div><h2 class="headlines">Search For Films</h2></div>
+  
+  
+  <form action="/films" method="POST">
+    <div class="input-group">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="search-addon"
+        name="search"
+      />
+      <button type="submit" class="btn btn-outline-primary">search</button>
+    </div>
+  </form>
+
+</section>
+
+
+
+<div class="container text-center">
+  <div class="row align-items-end">
+    {{#each filmsFromDB}}
+
+      <div class="col col-md-3 fest film-prj">
+        <img class="fest-img film-img" src="{{poster}}" alt="{{title}}" />
+        <div class="text-center">
+          <h5>{{title}}</h5>
+          <a href="/festivals/{{_id}}" class="btn btn-outline-dark">View details</a>
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+</div>
