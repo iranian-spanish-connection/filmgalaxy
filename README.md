@@ -20,4 +20,6 @@ Find the live app [here](https://filmgalaxy.herokuapp.com/)
 <img src="./public/images/filmgalaxy-homepage.jpg)" alt="drawing" style="width:800px;"/>
 
 <br/>
+<p float="left">
 <img src="./public/images/filmgalalxy-festivals.png" alt="drawing" style="width:400px;"/><img src="./public/images/filmgalaxy-films.png" alt="drawing" style="width:400px;"/>
+</p>
