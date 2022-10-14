@@ -6,8 +6,8 @@ Film Galaxy is a platform where filmmakers, producers and distributors can submi
 
 In order to run this application you need to add these environment variables to the platform where the site will be running:
 
-- MONGODB_URI: The mongodb atlas connection string for the database
-- SESSION_SECRET: The key for encrypting the cookies
+- MONGODB_URI: The mongodb connection string for the database
+- SESSION_SECRET: The secret used to sign the session ID cookies
 - Create an account in Cloudinary to upload the images in the application and put the required values from you account (you can find them on the dashboard)
   - CLOUDINARY_KEY
   - CLOUDINARY_NAME
