@@ -36,7 +36,6 @@ const festivalSchema = new Schema({
   contactEmail: {
     type: String,
     required: true,
-    unique: true,
     match: [
       /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
       "Please use a valid email address.",
