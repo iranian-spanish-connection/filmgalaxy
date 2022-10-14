@@ -18,7 +18,7 @@ In order to run this application you need to add these environment variables to 
 Find the live app [here](https://filmgalaxy.herokuapp.com/)
 
 <p float="left">
-<img src="./public/images/filmgalaxy-homepage.jpg)" alt="drawing" style="width:100%;"/>
+<img src="./public/images/filmgalaxy-homepage.jpg" alt="drawing" style="width:100%;"/>
 </p>
 
 <br/>
