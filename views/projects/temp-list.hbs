@@ -20,20 +20,42 @@
 
 
 
-<div class="container films">
+{{!-- <div class="container">
+
   <div class="row align-items-end">
+
     {{#each filmsFromDB}}
 
-      <div class="col col-md-3 fest film-prj">
+      <div class="col col-md-3">
         
-        <img class="fest-img film-img" src="{{poster}}" alt="{{title}}" />
+        <div class="film-img"><img class="film-img" src="{{poster}}" alt="{{title}}" /></div>
         
-        <div class="text-center film-txt">
-          <h5>{{title}}</h5>
+        <div class="text-center">
+          <h6>{{title}}</h6>
           <a href="/films/{{this.title}}" class="btn btn-outline-dark">View details</a>
         </div>
       </div>
 
     {{/each}}
+
   </div>
-</div>
+
+</div> --}}
+
+
+  <div class="film-container text-center">
+
+    {{#each filmsFromDB}}
+        <div class="text-centers caps img-hover-zoom">
+
+        <a href="/films/{{this.title}}"><img class="film-img" src="{{poster}}" alt="{{title}}" /></a>
+        
+          <h6 class="text-centers title-film">{{title}}</h6>
+          <a href="/films/{{this.title}}" class="btn btn-outline-dark">View details</a>
+        
+      
+
+      </div>
+    {{/each}}
+
+  </div>

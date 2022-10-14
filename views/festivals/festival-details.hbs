@@ -2,7 +2,7 @@
   <div><h2 class="headlines">Festival details:</h2></div>
 </section>
 
-<div class="content-body">
+{{!-- <div class="content-body">
   <div class="text-center">
     <img src="{{image}}" alt="{{title}}" />
     <h2>{{title}}</h2>
@@ -17,4 +17,68 @@
     {{author.country}}
     <br />
   </div>
-</div>
+</div> --}}
+
+
+
+
+{{!-- <section class="heads" id="festival-head">
+  <div><h2 class="headlines">My Festival</h2></div>
+</section> --}}
+
+
+
+  <div class="d-flex justify-content-center">
+
+    <div class="content-body">
+
+      <div class="card mb-4 border-0" style="max-width: 1100px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            {{!-- <img
+              src="{{festivalFromDB.photos}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            /> --}}
+            <img style="width:100%; margin-bottom: 30px;"
+              src="{{poster}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+
+            <a
+              class="form-control btn btn-outline-secondary btn-sm"
+              href="/festivals"
+            >Return</a>
+          </div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">{{title}}</h3s> <br/><br/>
+                        <h5 class="card-title">Festival Information</h5>
+                        <p class="card-text"><small>Brief Description:</small>  {{description}}</p>
+                        <p class="card-text"><small>Country:</small> {{country}}</p>
+                        <p class="card-text"><small>Location:</small>  {{location}}</p>
+                        <p class="card-text"><small>Format:</small>  {{format}}</p>
+                        <p class="card-text"><small>Event Start Date:</small>  {{formatDate "DD-MMM-YYYY" festivalFromDB.eventStartDate}}</p>
+                        <p class="card-text"><small>Event End Date:</small>  {{formatDate "DD-MMM-YYYY" festivalFromDB.eventEndDate}}</p>
+                        <p class="card-text"><small>Submission Deadline:</small>  {{formatDate "DD-MMM-YYYY" festivalFromDB.submissionDeadline}}</p>
+                        <p class="card-text"><small>Entry fee:</small>  {{entryFee}}</p>
+                        <p class="card-text"><small>Projects to Submit:</small>  {{acceptedCategories}}</p>
+                        <p class="card-text"><small>Accepted Project Length:</small>  {{acceptedLength}}</p> <br/>
+                        
+              <h5 class="card-title">Contacts</h5>
+              <p class="card-text"><small>Contact Person:</small>
+                {{contactPerson}}</p>
+              <p class="card-text"><small>Contact Email:</small>
+                {{contactEmail}}</p>
+              <p class="card-text"><small>Website:</small>
+                {{website}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
