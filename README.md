@@ -21,5 +21,5 @@ Find the live app [here](https://filmgalaxy.herokuapp.com/)
 
 <br/>
 <p float="left">
-<img src="./public/images/filmgalalxy-festivals.png" alt="drawing" style="width:400px;"/><img src="./public/images/filmgalaxy-films.png" alt="drawing" style="width:400px;"/>
+<img src="./public/images/filmgalalxy-festivals.png" alt="drawing" style="width:500px;"/><img src="./public/images/filmgalaxy-films.png" alt="drawing" style="width:500px;"/>
 </p>
