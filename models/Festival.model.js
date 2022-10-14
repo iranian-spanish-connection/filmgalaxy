@@ -25,7 +25,7 @@ const festivalSchema = new Schema({
     required: true,
     trim: true,
   },
-  format: { type: String, required: true, enum: formatList },
+  format: { type: String, required: true, enum: formatList, trim: true },
   eventStartDate: { type: Date, required: true },
   eventEndDate: { type: Date, required: true },
   submissionDeadline: { type: Date, required: true },
