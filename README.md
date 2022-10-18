@@ -22,14 +22,15 @@ Find the live app [here](https://filmgalaxy.herokuapp.com/)
 <img src="./public/images/filmgalaxy-homepage.jpg" alt="drawing" style="width:1000px;"/>
 
 <br/>
-<img src="./public/images/filmgalalxy-festivals.png" alt="drawing" style="width:500px;"/>   <img src="./public/images/filmgalaxy-films.png" alt="drawing" style="width:500px;"/>
+<img src="./public/images/filmgalalxy-festivals.png" alt="drawing" style="width:1000px;"/>
+<img src="./public/images/filmgalaxy-films.png" alt="drawing" style="width:1000px;"/>
 
 # Author
 
 **Mog Rouhi && Gabriel Gomez**
 
-- [https://github.com/Mog-Rouhi](https://github.com/Mog-Rouhi)
-- [https://github.com/gabriel-vcs](https://github.com/gabriel-vcs)
+* [https://github.com/Mog-Rouhi](https://github.com/Mog-Rouhi)
+* [https://github.com/gabriel-vcs](https://github.com/gabriel-vcs)
 
 # License
 
