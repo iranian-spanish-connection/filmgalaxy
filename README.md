@@ -17,7 +17,7 @@ In order to run this application you need to add these environment variables to 
 
 # Demo
 
-Find the live app [here](https://filmgalaxy.herokuapp.com/)
+Find the live app [here](https://filmgalaxy.adaptable.app/)
 
 <img src="./public/images/filmgalaxy-homepage.jpg" alt="drawing" style="width:1000px;"/>
 
